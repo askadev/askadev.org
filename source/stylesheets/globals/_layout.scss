@@ -1,0 +1,35 @@
+.container {
+  text-align: center;
+  max-width: 1440px;
+  margin-bottom: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  &.-fill {
+    padding: 120px 80px;
+    background: $c-blue;
+    color: $c-white;
+    align-items: center;
+
+    @include bp(large) {
+      // display: flex;
+    }
+
+    h2,
+    h3 {
+      background: $c-white;
+      display: inline-block;
+      padding: 5px;
+    }
+
+    header,
+    .content {
+      flex: 1 0 50%;
+    }
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,75 @@
+//////////////////////////////
+// FINE Functions
+//////////////////////////////
+
+// Return a negative integer of the supplied value
+@function negate($integer) {
+  @if $integer > 0 {
+    @return 0 - $integer;
+  } @else {
+    @return $integer;
+  }
+}
+
+// Z-index function: comma-separated list and item taken
+// http://www.smashingmagazine.com/2014/06/12/sassy-z-index-management-for-complex-layouts/
+@function z($list, $element) {
+  $z-index: index($list, $element);
+
+  @if $z-index {
+    @return $z-index;
+  }
+
+  @warn "There is no item '#{$element}' in this list; choose one of: #{$list}";
+  @return null;
+}
+
+// Taken from Foundation
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
+@function remCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1rem;
+}
+
+// Helper for finding value in a faux sass hash -- i.e. a list
+// http://hugogiraudel.com/2013/08/12/sass-functions/
+@function match($collection, $value) {
+  @each $item in $collection {
+    $index: index($item, $value);
+    @if $index {
+      $return: if($index == 1, 2, $index);
+      @return nth($item, $return);
+    }
+  }
+  @return false;
+}
+
+// http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+@function retrievebp($name, $breakpoint_list: $breakpoints) {
+  // If the key exists in the map
+  @if map-has-key($breakpoint_list, $name) {
+    // {String} - media query based on the value
+    @return inspect(map-get($breakpoint_list, $name));
+
+  } @else {
+    // If the key doesn't exist in the map
+    @warn "Unfortunately, no value with #{$name} could be retrieved from `$breakpoint`. "
+        + 'Please make sure it is defined in `$breakpoints` map.';
+    @return null;
+  }
+}
+
+@function mapperize($list, $key) {
+  @if map-has-key($list, $key) {
+    @return map-get($list, $key);
+  } @else {
+    // Obvious off brand color for error detection
+    @return #00f;
+  }
+}
+
+@function gray($key: 50) {
+  @return mapperize($grays, $key);
+}

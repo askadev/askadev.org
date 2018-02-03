@@ -1,0 +1,24 @@
+//////////////////////////////
+// Query Order
+//////////////////////////////
+
+// Used to force Sprockets Media Query Combiner to combine in the correct order
+
+// Min-width Queries
+@include bp(small) { /* small */ }
+@include bp(medium) { /* medium */ }
+@include bp(medium-only) { /* medium only */ }
+@include bp(medium-portrait) { /* medium portrait */ }
+@include bp(large) { /* large */ }
+
+// Max width queries need to come after min-width, and in reverse order
+@include bp(large-down) { /* large down */ }
+@include bp(medium-down) { /* medium down */ }
+@include bp(small-down) { /* small down */ }
+
+// Other Queries
+@include bp(print) { /* print */ }
+@include bp(screen) { /* screen */ }
+@include bp(retina) { /* retina */ }
+@include bp(portrait) { /* portrait */ }
+@include bp(landscape) { /* landscape */ }

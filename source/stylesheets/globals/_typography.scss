@@ -1,0 +1,41 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: $f-headline;
+  line-height: 1.1;
+  font-weight:normal;
+  margin: 0 0 20px;
+  text-transform: lowercase;
+}
+
+h1,
+h2 {
+  color: $c-blue;
+}
+
+h1 {
+  font-size: 58px;
+}
+
+h2 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 38px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+p {
+  line-height: 1.7;
+  margin: 0 0 1.5em;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,18 @@
+// Used in conjunction with SVG external content icons
+.icon {
+  // Parent font color
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+
+  // Use the parent font-size for width and height
+  height: 1em;
+  width: 1em;
+
+  // Flow with text content
+  display: inline-block;
+  vertical-align: middle;
+
+  // Align more nicely with capital letters
+  position: relative;
+}

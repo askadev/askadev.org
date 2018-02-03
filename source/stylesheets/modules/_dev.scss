@@ -1,0 +1,38 @@
+.devs {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.dev-box {
+  flex: 1 0 0px;
+
+  @include bp(medium) {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  @include bp(large) {
+    flex-basis: calc( 100% / 3 );
+    max-width: calc( 100% / 3 );
+  }
+
+  img {
+    border-radius: 500px;
+    width: 150px;
+    height: auto;
+    filter: grayscale(100);
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    color: $c-blue;
+  }
+}
+
+.dev-skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  font-size: 18px;
+}
