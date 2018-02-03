@@ -3,6 +3,7 @@ ruby:
     {
       name: 'Tim Shedor',
       image: 'https://avatars2.githubusercontent.com/u/865897?s=460&v=4',
+      github: 'tshedor',
       skills: {
         'HTML & CSS' => 1,
         'JavaScript' => 0.9,
@@ -11,8 +12,37 @@ ruby:
         'React, Redux, etc.' => 0.7,
         'Swift' => 0.4
       },
-      tenure: '7+',
+      tenure: '8+',
       url: 'https://timshedor.com/resume'
+    },
+    {
+      name: 'Niles McGiver',
+      image: 'https://avatars3.githubusercontent.com/u/4657767?s=460&v=4',
+      github: 'nilesvm',
+      skills: {
+        'Ruby, Rails' => 0.9,
+        'JavaScript' => 0.8,
+        'React' => 0.7,
+        'Non-profits' => 0.7,
+        'PHP' => 0.6,
+        'Python' => 0.6
+      },
+      tenure: '4+',
+      url: 'http://www.mcgiver.io/'
+    },
+    {
+      name: 'Will Chertoff',
+      image: 'https://avatars0.githubusercontent.com/u/9339964?s=460&v=4',
+      github: 'willchertoff',
+      skills: {
+        'JavaScript' => 0.8,
+        'React, Redux, etc.' => 0.8,
+        'PHP, WordPress' => 0.6,
+        'Graphic Design' => 0.6,
+        'Ruby, Rails' => 0.4
+      },
+      tenure: '3+',
+      url: 'http://www.willchertoff.com/'
     }
   ]
 
@@ -20,7 +50,6 @@ ruby:
   h2 Next Event
   h3 02.07.18 | 6-9pm
   h3 Coffee Time | NW Portland
-
 
 .container.-fill
   header: h2 Stuck.
@@ -34,8 +63,12 @@ ruby:
   .devs
     - devs.each do |dev|
       .dev-box
-        img src=dev[:image] alt=dev[:name]
-        h4 = dev[:name]
+        a href="https://github.com/#{dev[:github]}"
+          img src=dev[:image] alt=dev[:name]
+        a href=dev[:url]
+          h4
+            = dev[:name]
+            small #{dev[:tenure]} years
         ul.dev-skills
           - dev[:skills].each do |skill, proficiency|
             li style="opacity: #{proficiency}" = skill
