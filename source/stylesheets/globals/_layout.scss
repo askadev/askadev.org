@@ -6,13 +6,16 @@
   padding-right: 20px;
 
   &.-fill {
-    padding: 120px 80px;
+    padding-top: 120px;
+    padding-bottom: 120px;
     background: $c-blue;
     color: $c-white;
     align-items: center;
 
-    @include bp(large) {
+    @include bp(medium) {
       // display: flex;
+      padding-left: 80px;
+      padding-right: 80px;
     }
 
     h2,
@@ -29,7 +32,7 @@
   }
 
   .content {
-    max-width: 800px;
+    max-width: 760px;
     margin: 0 auto;
   }
 }

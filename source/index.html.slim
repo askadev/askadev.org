@@ -49,41 +49,42 @@ ruby:
   events = [
     {
       location: 'Coffee Time',
-      region: 'NW Portland',
+      region: 'Portland',
       directions: 'https://www.google.com/maps/place/Coffee+Time/@45.527948,-122.694321,15z/data=!4m2!3m1!1s0x0:0x27d522da6baac463?sa=X&ved=0ahUKEwj8tayFyorZAhVYwGMKHQyIBMYQ_BIIezAK',
       time: '6-9pm',
       date: '02.07.18'
     },
     {
       location: 'Southeast Grind',
-      region: 'SE Portland',
+      region: 'Portland',
       directions: 'https://www.google.com/maps/place/Southeast+Grind/@45.5009417,-122.6524669,15z/data=!4m2!3m1!1s0x0:0x938639b6b18b3206?sa=X&ved=0ahUKEwjGldHXzYrZAhVJiVQKHQjdDGgQ_BIIfTAK',
       time: '6-9pm',
       date: '02.21.18'
     },
     {
       location: 'Coffee Time',
-      region: 'NW Portland',
+      region: 'Portland',
       directions: 'https://www.google.com/maps/place/Coffee+Time/@45.527948,-122.694321,15z/data=!4m2!3m1!1s0x0:0x27d522da6baac463?sa=X&ved=0ahUKEwj8tayFyorZAhVYwGMKHQyIBMYQ_BIIezAK',
       time: '6-9pm',
       date: '03.07.18'
     },
     {
       location: 'Southeast Grind',
-      region: 'SE Portland',
+      region: 'Portland',
       directions: 'https://www.google.com/maps/place/Southeast+Grind/@45.5009417,-122.6524669,15z/data=!4m2!3m1!1s0x0:0x938639b6b18b3206?sa=X&ved=0ahUKEwjGldHXzYrZAhVJiVQKHQjdDGgQ_BIIfTAK',
       time: '6-9pm',
       date: '03.21.18'
     },
   ]
 
-.container
+.container#upcoming-events
   h2 Upcoming Events
   .events
     - events.each do |event|
       .event
         .event-location
           a href=event[:directions] = event[:location]
+          small< = event[:region]
         .event-time
           = [event[:date], event[:time]].join(', ')
 
@@ -91,7 +92,7 @@ ruby:
   header: h2 Stuck.
   .content
     p You know the feeling. 11:34. Cache-clearing refreshes, stale coffee, and tufts of hair. There <em>has</em> to be a better way. Someone <em>must</em> know what I'm doing wrong.
-    p Wether you're an entry programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help. Join us for a few hours every other week as we field your ranging questions:
+    p Wether you're a new programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help. Join us for a few hours every other week as we field your ranging questions:
     p Should I update my WordPress plugins? Can I use ES6 in a webpack file? How do I configure continuous deployment to S3? What ever happened to Ray Romano?
 
 .container
@@ -111,19 +112,27 @@ ruby:
             - if idx == 2
               li.show-more.js-show-more See More
 
+  br
+  a< href="#can-i-join" join the crew
+
 .container.-fill
   header: h2 Why?
   .content
-    p While StackOverflow is a great resource, pairing with someone who knows for even a few minutes. Not all of us are fortunate enough to have a CS degree or a principal mentor. We want to be that mentor we never had.
-    p Or maybe you just need a quick website for your photography business but none of your friends know how to connect a custom domain to Squarespace. We want to be that friend.
+    p While you can Google your way out of any problem, pairing with someone just <em>feels better</em>. Not all of us are fortunate enough to claim a CS degree or enjoy the guidance of a senior. <strong>We want to be the mentor we never had.</strong>
+    p Or maybe you need a quick website for your photography portfolio but can't connect a custom domain to Squarespace. <strong>We want to help.</strong>
+
+.container
+  header: h3 Where can I find you?
+  .content
+    p Check the most recent <a href="#upcoming-events">event listings</a> for upcoming meetups. We're not partnered, sanctioned, or affiliated with our public meeting places: we're just normal customers, so please plan to patronize. Organizers will be sporting the <a href=#{image_path('logo.svg')}>Ask a Dev logo</a>.
 
 .container
   header: h3 How long will you help?
   .content
-    p As long as we can within reason. Some of us are freelancers; nothing's stopping an arrangement for extra-curricular services. But as long as we're hosting office hours, we're free.
+    p As long as we can within reason. Some problems are bigger than three hours, and while we <storng>are not</strong> here to solicit, extra-curricular freelancing is permissible. However, as long as we're hosting office hours, we're free.
 
-.container
+.container#can-i-join
   header: h3 Can I join?
   .content
     p If you've got something to teach, we've got someone to learn. Show up at the next scheduled event and tap an organizer about being listed here.
-    p Out-of-staters: <a href="mailto:askadevorg@gmail.com">drop us an email</a> and we'll work out how to open a chapter in your neighborhood.
+    p Out of state? <a href="mailto:askadevorg@gmail.com">Drop us an email</a>, and we'll work on starting a chapter in your neighborhood.

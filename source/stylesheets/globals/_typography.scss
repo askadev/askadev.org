@@ -15,20 +15,20 @@ h2 {
 }
 
 h1 {
-  font-size: 58px;
+  font-size: remCalc(58px);
 }
 
 h2 {
-  font-size: 48px;
+  font-size: remCalc(48px);
   margin-bottom: 30px;
 }
 
 h3 {
-  font-size: 38px;
+  font-size: remCalc(38px);
 }
 
 h4 {
-  font-size: 28px;
+  font-size: remCalc(28px);
 }
 
 p {
