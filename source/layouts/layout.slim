@@ -35,16 +35,15 @@ html lang="en"
 
   body data-force-encoding="✓" class=page_classes
 
-    header.logo
+    header.container.logo
       = image_tag('logo.svg', alt: 'Ask A Dev')
       h2 Free Mentoring from Local Programmers
 
     main == yield
 
-    footer.main-footer
-      .copyright
-        | &copy; Copyright
-        a<> href="/" title="Ask A Dev" Ask a Dev
-        span#js-year = Date.today.year
+    footer.container.copyright
+      | &copy; Copyright Ask a Dev
+      span#js-year<> = Date.today.year
+      | | Logo by <a href="http://northbryan.com/">North Bryan</a>
 
     == javascript_include_tag 'application'

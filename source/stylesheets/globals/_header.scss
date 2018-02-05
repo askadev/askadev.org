@@ -1,15 +1,14 @@
 .logo {
   display: flex;
-  text-align: center;
   flex-direction: column;
   margin: 60px 0;
 
   @include bp(large) {
-    margin: 120px 0;
+    margin: 150px 0;
   }
 
   img {
-    margin: 0 auto 30px;
+    margin: 0 0 40px;
     width: 100%;
     max-width: 70%;
 

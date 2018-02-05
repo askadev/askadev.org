@@ -1,13 +1,25 @@
 ruby:
   devs = [
     {
+      name: 'Nichole Barrett',
+      image: 'https://media.licdn.com/media/p/7/005/0b6/2db/2ed64e5.jpg',
+      github: 'lechin',
+      skills: {
+        'Ruby, Rails' => 1,
+        'MySQL' => 0.7,
+        'HTML & CSS' => 0.4,
+        'JavaScript' => 0.3,
+      },
+      tenure: '6+',
+      url: 'https://github.com/lechin'
+    },
+    {
       name: 'Will Chertoff',
       image: 'https://avatars0.githubusercontent.com/u/9339964?s=460&v=4',
       github: 'willchertoff',
       skills: {
         'JavaScript' => 0.8,
         'React, Redux, etc.' => 0.7,
-        'PHP, WordPress' => 0.5,
         'Graphic Design' => 0.5,
         'Ruby, Rails' => 0.2
       },
@@ -91,7 +103,7 @@ ruby:
 .container.-fill
   header: h2 Stuck.
   .content
-    p You know the feeling. 11:34. Cache-clearing refreshes, stale coffee, and tufts of hair. There <em>has</em> to be a better way. Someone <em>must</em> know what I'm doing wrong.
+    p You know the feeling. 11:34. Cache-clearing refreshes, stale coffee, tufts of hair. There <em>has</em> to be a better way. Someone <em>must</em> know what I'm doing wrong.
     p Wether you're a new programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help. Join us for a few hours every other week as we field your ranging questions:
     p Should I update my WordPress plugins? Can I use ES6 in a webpack file? How do I configure continuous deployment to S3? What ever happened to Ray Romano?
 
@@ -100,20 +112,21 @@ ruby:
   .devs
     - devs.each do |dev|
       .dev-box
-        a href="https://github.com/#{dev[:github]}"
-          img src=dev[:image] alt=dev[:name]
-        a href=dev[:url]
-          h4
-            = dev[:name]
-            small #{dev[:tenure]} years
+        header
+          a href="https://github.com/#{dev[:github]}"
+            img src=dev[:image] alt=dev[:name]
+          a href=dev[:url]
+            h4
+              = dev[:name]
+              small #{dev[:tenure]} years
         ul.dev-skills
           - dev[:skills].each_with_index do |skill, idx|
             li style="opacity: #{skill[1]}" = skill[0]
             - if idx == 2
-              li.show-more.js-show-more See More
+              li.show-more.js-show-more +see more
 
   br
-  a< href="#can-i-join" join the crew
+  a href="#can-i-join" join the crew
 
 .container.-fill
   header: h2 Why?
@@ -129,7 +142,7 @@ ruby:
 .container
   header: h3 How long will you help?
   .content
-    p As long as we can within reason. Some problems are bigger than three hours, and while we <storng>are not</strong> here to solicit, extra-curricular freelancing is permissible. However, as long as we're hosting office hours, we're free.
+    p As long as we can within reason. Some problems are bigger than three hours, and while we <strong>are not</strong> here to solicit, extra-curricular freelancing is permissible. However, as long as we're hosting office hours, we're free.
 
 .container#can-i-join
   header: h3 Can I join?
