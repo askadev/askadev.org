@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/.bundle/**",
+      "/.sass-cache",
+      "/.cache"
+    ]
+  }
+}

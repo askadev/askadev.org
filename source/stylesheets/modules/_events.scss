@@ -1,0 +1,18 @@
+.events {
+  max-width: 800px;
+}
+
+.event {
+  justify-content: space-between;
+  text-transform: lowercase;
+  margin-bottom: 8px;
+
+  @include bp(medium) {
+    display: flex;
+  }
+
+  small {
+    color: gray(50);
+    font-size: remCalc(12px);
+  }
+}

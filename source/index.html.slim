@@ -10,7 +10,7 @@ ruby:
         'HTML & CSS' => 0.4,
         'JavaScript' => 0.3,
       },
-      tenure: '6+',
+      tenure: '7+',
       url: 'https://github.com/lechin'
     },
     {
@@ -117,7 +117,7 @@ ruby:
             img src=dev[:image] alt=dev[:name]
           a href=dev[:url]
             h4
-              = dev[:name]
+              == dev[:name].split(' ').join('<br />')
               small #{dev[:tenure]} years
         ul.dev-skills
           - dev[:skills].each_with_index do |skill, idx|

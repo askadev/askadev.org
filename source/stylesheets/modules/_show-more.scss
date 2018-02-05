@@ -1,0 +1,8 @@
+.show-more {
+  color: $c-blue;
+  cursor: pointer;
+
+  ~ * {
+    display: none;
+  }
+}

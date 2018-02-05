@@ -5,7 +5,7 @@
 
 .dev-box {
   flex: 1 0 100%;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 
   @include bp(medium) {
     flex-basis: 50%;
@@ -14,8 +14,8 @@
   }
 
   @include bp(large) {
-    flex-basis: calc( 100% / 3 );
-    max-width: calc( 100% / 3 );
+    flex-basis: calc( 100% / 4 );
+    max-width: calc( 100% / 4 );
   }
 
   header {
