@@ -35,7 +35,6 @@ ruby:
         'JavaScript' => 0.8,
         'React' => 0.6,
         'Non-profits' => 0.6,
-        'PHP' => 0.4,
         'Python' => 0.4
       },
       tenure: '4+',
@@ -51,11 +50,24 @@ ruby:
         'PHP, WordPress' => 0.8,
         'Ruby, Rails' => 0.6,
         'React, Redux, etc.' => 0.5,
-        'Swift' => 0.2
+        'iOS, Swift' => 0.2
       },
       tenure: '8+',
       url: 'https://timshedor.com/resume'
-    }
+    },
+    # {
+    #  name: 'Mark Hoffmann',
+    #  image: 'https://avatars2.githubusercontent.com/u/772744?s=460&v=4',
+    #  github: 'markhoffmann',
+    #  skills: {
+    #    'HTML & CSS' => 0.8,
+    #    'JavaScript' => 0.7,
+    #    'PHP' => 0.7,
+    #    'Ruby, Rails' => 0.4
+    #  },
+    #  tenure: '11+',
+    #  url: 'https://github.com/markhoffmann'
+    #}
   ]
 
   events = [
@@ -63,29 +75,29 @@ ruby:
       location: 'Coffee Time',
       region: 'Portland',
       directions: 'https://www.google.com/maps/place/Coffee+Time/@45.527948,-122.694321,15z/data=!4m2!3m1!1s0x0:0x27d522da6baac463?sa=X&ved=0ahUKEwj8tayFyorZAhVYwGMKHQyIBMYQ_BIIezAK',
-      time: '6-9pm',
+      time: '&nbsp;6-9pm',
       date: '02.07.18'
     },
     {
-      location: 'Southeast Grind',
+      location: 'Seven Virtues',
       region: 'Portland',
-      directions: 'https://www.google.com/maps/place/Southeast+Grind/@45.5009417,-122.6524669,15z/data=!4m2!3m1!1s0x0:0x938639b6b18b3206?sa=X&ved=0ahUKEwjGldHXzYrZAhVJiVQKHQjdDGgQ_BIIfTAK',
-      time: '6-9pm',
-      date: '02.21.18'
+      directions: 'https://www.google.com/maps/place/Seven+Virtues+Coffee+Roasters+at+the+Zipper/@45.5204775,-122.6285427,14.92z/data=!4m8!1m2!2m1!1sSeven+Virtues!3m4!1s0x0:0xf62b96a9c33e9d44!8m2!3d45.5291552!4d-122.6376557',
+      time: '10-1pm',
+      date: '02.15.18'
     },
     {
       location: 'Coffee Time',
       region: 'Portland',
       directions: 'https://www.google.com/maps/place/Coffee+Time/@45.527948,-122.694321,15z/data=!4m2!3m1!1s0x0:0x27d522da6baac463?sa=X&ved=0ahUKEwj8tayFyorZAhVYwGMKHQyIBMYQ_BIIezAK',
-      time: '6-9pm',
-      date: '03.07.18'
+      time: '&nbsp;6-9pm',
+      date: '02.21.18'
     },
     {
-      location: 'Southeast Grind',
+      location: 'Seven Virtues',
       region: 'Portland',
-      directions: 'https://www.google.com/maps/place/Southeast+Grind/@45.5009417,-122.6524669,15z/data=!4m2!3m1!1s0x0:0x938639b6b18b3206?sa=X&ved=0ahUKEwjGldHXzYrZAhVJiVQKHQjdDGgQ_BIIfTAK',
-      time: '6-9pm',
-      date: '03.21.18'
+      directions: 'https://www.google.com/maps/place/Seven+Virtues+Coffee+Roasters+at+the+Zipper/@45.5204775,-122.6285427,14.92z/data=!4m8!1m2!2m1!1sSeven+Virtues!3m4!1s0x0:0xf62b96a9c33e9d44!8m2!3d45.5291552!4d-122.6376557',
+      time: '10-1pm',
+      date: '03.01.18'
     },
   ]
 
@@ -97,15 +109,15 @@ ruby:
         .event-location
           a href=event[:directions] = event[:location]
           small< = event[:region]
-        .event-time
-          = [event[:date], event[:time]].join(', ')
+        time.event-time
+          == [event[:date], event[:time]].join(' ')
 
 .container.-fill
   header: h2 Stuck.
   .content
-    p You know the feeling. 11:34. Cache-clearing refreshes, stale coffee, tufts of hair. There <em>has</em> to be a better way. Someone <em>must</em> know what I'm doing wrong.
-    p Wether you're a new programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help. Join us for a few hours every other week as we field your ranging questions:
-    p Should I update my WordPress plugins? Can I use ES6 in a webpack file? How do I configure continuous deployment to S3? What ever happened to Ray Romano?
+    p You know the feeling. Cache-clearing refreshes, stale coffee, tufts of hair. There <em>has</em> to be a better way. Someone <em>must</em> know what I'm doing wrong.
+    p Whether you're a new programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help. Join us for a few hours every other week as we answer your frustrations:
+    p Should I update my WordPress plugins? Can I use ES6 in a webpack file? How do I configure continuous deployment to S3? Does everybody still love Raymond?
 
 .container
   h2 Who?
