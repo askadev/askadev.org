@@ -3,7 +3,13 @@
 ## Development
 
 ```bash
-$ gem install bundle
-$ bundle install
-$ middleman s
+$ yarn
+$ yarn run dev
+```
+
+## Build
+
+```bash
+$ yarn run build
+$ yarn run start
 ```
