@@ -1,10 +1,12 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux"
 
-import Presenter from './Presenter';
+import Presenter from "./Presenter"
 
-function mapDispatchToProps(state) {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    login: () => dispatch(loginUser())
+  }
 }
 
-const Main = connect(null, mapDispatchToProps)(Presenter);
-export default Main;
+const Main = connect(null, mapDispatchToProps)(Presenter)
+export default Main

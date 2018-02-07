@@ -1,15 +1,25 @@
-import { firebaseAuth } from "../constants/firebase"
+import { firebaseAuth, refRoot, table } from "../constants/firebase"
 
 export function login() {
   const provider = new firebaseAuth.GithubAuthProvider()
 
   firebaseAuth()
-    .signInWithRedirect(provider)
+    .signInWithPopup(provider)
     .then(function(result) {
       const token = result.credential.accessToken
-      const user = result.user
+      const { displayName, photoURL, uid = false } = result.user
 
       // save username, github id
+      if (uid) {
+        refRoot(table.USERS.BASE)
+          .child(uid)
+          .set({
+            displayName,
+            photoURL
+          })
+      } else {
+        // Log failed signup info here
+      }
     })
     .catch(error => console.warn(error))
 }
