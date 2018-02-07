@@ -3,8 +3,8 @@ import { hot } from "react-hot-loader"
 
 import { Provider } from "react-redux"
 
-import configureStore from "./store/configureStore"
-import Home from "./pages/home"
+import configureStore from "../../store/configureStore"
+import Home from "../../pages/home"
 
 const store = configureStore()
 

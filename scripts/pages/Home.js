@@ -1,5 +1,7 @@
 import React from "react"
-import { Head, Header } from "../components"
+
+import Header from "../components/Header"
+import NewEvent from "../containers/NewEvent"
 
 const Home = () => (
   <div>
@@ -8,6 +10,7 @@ const Home = () => (
       <div className="container" id="upcoming-events">
         <h2>Upcoming Events</h2>
         <div className="events">{/* <Events /> */}</div>
+        <NewEvent />
       </div>
       <div className="container -fill">
         <header>
