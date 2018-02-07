@@ -1,8 +1,10 @@
 import React from 'react'
 
-import Events from '../../components/Events'
-import Mentors from '../../components/Users'
-import NewEvent from '../../components/NewEvent'
+import Events from '../Events'
+import Mentors from '../Users'
+import NewEvent from '../NewEvent'
+import AvatarMenu from '../AvatarMenu'
+import Admin from '../Admin'
 
 import logo from '../../../assets/logo.svg'
 
@@ -23,9 +25,11 @@ export default class extends React.Component {
   render() {
     return (
       <div>
+        <Admin />
         <header className="container logo">
           <img alt="Ask A Dev" src={logo} />
           <h2>Free Mentoring from Local Programmers</h2>
+          <AvatarMenu />
         </header>
         <div className="container" id="upcoming-events">
           <h2>Upcoming Events</h2>

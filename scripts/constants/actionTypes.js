@@ -17,3 +17,6 @@ export const RECEIVE_USERS = 'RECEIVE_USERS'
 
 // leftovers
 export const RESET = 'RESET'
+
+// ui
+export const TOGGLE_ADMIN = 'TOGGLE_ADMIN'
