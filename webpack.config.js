@@ -1,23 +1,23 @@
-const path = require('path');
-const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path")
+const autoprefixer = require("autoprefixer")
+const webpack = require("webpack")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './scripts/application.js',
+    "webpack-dev-server/client?http://localhost:8080",
+    "webpack/hot/only-dev-server",
+    "./scripts/index.js"
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/',
-    filename: 'bundle.js',
+    path: path.join(__dirname, "dist"),
+    publicPath: "/",
+    filename: "bundle.js"
   },
   devServer: {
-    host: 'localhost',
+    host: "localhost",
     port: 8080,
     historyApiFallback: true,
     hot: true
@@ -28,9 +28,13 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-stage-0']
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-stage-0"
+            ]
           }
         }
       },
@@ -45,11 +49,11 @@ module.exports = {
                 plugins: () => [
                   autoprefixer({
                     browsers: [
-                      '>1%',
-                      'last 2 versions',
-                      'not ie < 10', // React doesn't support IE8 anyway
+                      ">1%",
+                      "last 2 versions",
+                      "not ie < 10" // React doesn't support IE8 anyway
                     ],
-                    flexbox: 'no-2009',
+                    flexbox: "no-2009"
                   })
                 ],
                 sourceMap: true
@@ -66,42 +70,41 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: "json-loader"
       },
       {
         test: /\.(jpe?g|png|gif|woff2?|eot|ttf|svg)$/,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          outputPath: 'assets/'
+          outputPath: "assets/"
         }
-      },
-
-    ],
+      }
+    ]
   },
   externals: {
-    'google': 'google'
+    google: "google"
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: [".js", ".jsx"]
   },
   plugins: [
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('css/base.css'),
+    new ExtractTextPlugin("css/base.css"),
     new webpack.DefinePlugin({
-      'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV || "development")
     }),
     new HtmlWebpackPlugin({
-      inject: 'body',
-      template: 'index.html'
+      inject: "body",
+      template: "index.html"
     }),
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
+    dgram: "empty",
+    fs: "empty",
+    net: "empty",
+    tls: "empty",
+    child_process: "empty"
   }
-};
+}
