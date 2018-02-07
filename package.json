@@ -30,7 +30,7 @@
     "prop-types": "^15.5.10",
     "react": "^16.1.0",
     "react-dom": "^16.0.0",
-    "react-hot-loader": "^4.0.0-beta.15",
+    "react-hot-loader": "^4.0.0-beta.21",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
@@ -39,6 +39,10 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.4.1"
+  },
+  "babel": {
+    "presets": [["@babel/preset-env", { "modules": false }], "@babel/preset-react", "@babel/preset-stage-0"],
+    "plugins": ["react-hot-loader/babel"]
   },
   "devDependencies": {
     "webpack-dev-server": "^2.6.1"

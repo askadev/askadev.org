@@ -7,7 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'inline-source-map',
   entry: [
-    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './scripts/application.js',
@@ -27,8 +26,13 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['react-hot-loader/webpack', 'babel-loader?' + JSON.stringify({presets: ['react', 'es2015', 'stage-0']}) ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-stage-0']
+          }
+        }
       },
       {
         test: /\.s?css$/,
