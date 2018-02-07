@@ -1,9 +1,13 @@
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
 
-import Presenter from "./Presenter"
+import { toggleAuth } from '../../actions/auth'
+
+import Presenter from './Presenter'
 
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    toggleAuth: user => dispatch(toggleAuth(user))
+  }
 }
 
 const Main = connect(null, mapDispatchToProps)(Presenter)

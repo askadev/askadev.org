@@ -1,14 +1,25 @@
-import React from "react"
+import React from 'react'
 
-import Events from "../../components/Events"
-import Mentors from "../../components/Users"
-import NewEvent from "../../components/NewEvent"
+import Events from '../../components/Events'
+import Mentors from '../../components/Users'
+import NewEvent from '../../components/NewEvent'
 
-import logo from "../../../assets/logo.svg"
+import logo from '../../../assets/logo.svg'
 
-import { login } from "../../utils/auth"
+import { login } from '../../utils/auth'
+import { firebaseAuth } from '../../constants/firebase'
 
 export default class extends React.Component {
+  componentDidMount() {
+    const { toggleAuth } = this.props
+    firebaseAuth().onAuthStateChanged(user => {
+      if (user) {
+        toggleAuth(user)
+      } else {
+        toggleAuth()
+      }
+    })
+  }
   render() {
     return (
       <div>
