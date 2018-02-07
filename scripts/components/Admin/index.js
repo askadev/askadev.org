@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
 
+import { toggleAdmin } from '../../actions/ui'
+
 import Presenter from './Presenter'
 
 function mapStateToProps({
@@ -14,4 +16,10 @@ function mapStateToProps({
   }
 }
 
-export default connect(mapStateToProps)(Presenter)
+function mapDispatchToProps(dispatch) {
+  return {
+    toggleAdmin: () => dispatch(toggleAdmin())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Presenter)
