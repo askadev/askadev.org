@@ -3,7 +3,8 @@ export default ({
   name = "",
   url = "",
   githubUserId = "",
-  github
+  github,
+  skills = []
 }) => (
   <div className="dev-box">
     <header>
@@ -13,7 +14,7 @@ export default ({
           src={`https://avatars0.githubusercontent.com/u/${githubUserId}?s=460&v=4`}
         />
       </a>
-      <a href={url}>
+      <a href={url} target="_blank">
         <h4>
           {name.split(" ")[0]}
           <br />
@@ -22,6 +23,6 @@ export default ({
         </h4>
       </a>
     </header>
-    <ul className="dev-skills" />
+    <ul className="dev-skills">{skills.map(skill => <li>{skill.name}</li>)}</ul>
   </div>
 )

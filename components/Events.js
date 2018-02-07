@@ -6,16 +6,19 @@ import { Event } from "./index"
 const Events = ({ data: { allTimes, loading, error } }) =>
   loading
     ? "Loading Events"
-    : allTimes.map(time =>
-        time.events.map(event => (
-          <Event
-            key={time.id}
-            dateTime={time.date}
-            directions={event.location.directions}
-            name={event.location.name}
-          />
-        ))
-      )
+    : error
+      ? "Please Check Back Soon!"
+      : allTimes.map(time =>
+          time.events.map(event => (
+            <Event
+              key={time.id}
+              dateTime={time.date}
+              directions={event.location.directions}
+              name={event.location.name}
+              location={event.region.name}
+            />
+          ))
+        )
 
 export default compose(
   graphql(
@@ -28,6 +31,9 @@ export default compose(
             location {
               name
               directions
+            }
+            region {
+              name
             }
           }
         }

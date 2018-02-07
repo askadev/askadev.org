@@ -7,15 +7,18 @@ const Mentors = ({ data: { allUsers: allMentors, loading, error } }) => (
   <div className="devs">
     {loading
       ? "Loading Mentors"
-      : allMentors.map(mentor => (
-          <Mentor
-            key={mentor.id}
-            name={mentor.name}
-            githubUserId={mentor.githubUserId}
-            tenure={mentor.tenure}
-            url={mentor.url}
-          />
-        ))}
+      : error
+        ? "Please Check Back Soon!"
+        : allMentors.map(mentor => (
+            <Mentor
+              key={mentor.id}
+              name={mentor.name}
+              githubUserId={mentor.githubUserId}
+              tenure={mentor.tenure}
+              url={mentor.url}
+              skills={mentor.skills}
+            />
+          ))}
   </div>
 )
 
@@ -30,6 +33,9 @@ export default compose(
           github
           tenure
           url
+          skills {
+            name
+          }
         }
       }
     `

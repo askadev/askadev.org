@@ -11,7 +11,7 @@ export default ({
   <div className="event">
     <div className="event-location">
       <a href={directions}>{name}</a>
-      <small>&nbsp; Portland</small>
+      <small>&nbsp; {location}</small>
     </div>
     <div className="event-time">{formatTime(dateTime)}</div>
   </div>

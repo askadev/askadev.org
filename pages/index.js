@@ -113,7 +113,7 @@ const Home = () => (
     </main>
     <footer className="container copyright">
       &copy; Copyright Ask a Dev
-      <span id="js-year">2018</span> | Logo by
+      <span id="js-year"> 2018</span> | Logo by
       <a href="http://northbryan.com/"> North Bryan</a>
     </footer>
   </div>
