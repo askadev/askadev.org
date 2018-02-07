@@ -1,7 +1,8 @@
-import { TOGGLE_ADMIN } from '../constants/actionTypes'
+import { TOGGLE_UI } from '../constants/actionTypes'
 
-export function toggleAdmin() {
+export function toggleUI(func) {
   return {
-    type: TOGGLE_ADMIN
+    type: TOGGLE_UI,
+    func
   }
 }

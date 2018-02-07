@@ -1,24 +1,20 @@
 import { connect } from 'react-redux'
 
-import { toggleAdmin } from '../../actions/ui'
+import { toggleUI } from '../../actions/ui'
 
 import Presenter from './Presenter'
 
-function mapStateToProps({
-  auth: { uid, photoURL, displayName },
-  ui: { showAdmin }
-}) {
+function mapStateToProps({ auth: { uid, photoURL, displayName } }) {
   return {
     uid,
     displayName,
-    photoURL,
-    showAdmin
+    photoURL
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    toggleAdmin: () => dispatch(toggleAdmin())
+    toggleUI: func => dispatch(toggleUI(func))
   }
 }
 
