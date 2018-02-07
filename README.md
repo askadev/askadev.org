@@ -1,9 +1,23 @@
-# Ask a Dev Website
+# Bash&Spree Dashboard
 
-## Development
+## Install
 
 ```bash
-$ gem install bundle
-$ bundle install
-$ middleman s
+$ yarn install
 ```
+
+## Dev
+
+```
+$ yarn install && yarn start
+```
+
+Hit up http://localhost:8080.
+
+## Production
+
+```
+$ yarn run build
+```
+
+Everything compiles to `/public`
