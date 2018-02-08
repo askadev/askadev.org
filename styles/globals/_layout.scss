@@ -38,3 +38,18 @@
 .helper {
   font-size: remCalc(16px);
 }
+
+.wrapper {
+  &.modal-open {
+    pointer-events: none;
+    &:after {
+      top: 0;
+      position: absolute;
+      height: 100%;
+      content: '';
+      width: 100%;
+      background: black;
+      opacity: 0.5;
+    }
+  }
+}

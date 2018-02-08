@@ -17,7 +17,6 @@ html {
   font-size: $em-base;
   height: 100%;
 
-
   @include bp(medium-down) {
     font-size: 18px;
   }
@@ -55,4 +54,8 @@ a {
 p {
   margin: 0 0 15px;
   line-height: 1.4;
+}
+
+fieldset {
+  border: 0;
 }

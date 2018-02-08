@@ -23,7 +23,8 @@ const links = [
     text: 'Edit My Events',
     role: ['admin', 'superAdmin']
   },
-  { id: 4, func: 'addUserName', text: 'Add Username', role: ['superAdmin'] }
+  { id: 4, func: 'addUserName', text: 'Add Username', role: ['superAdmin'] },
+  { id: 5, func: 'addRegion', text: 'Add Region', role: ['superAdmin'] }
 ]
 
 export default ({ uid, photoURL, displayName, toggleUI }) =>
