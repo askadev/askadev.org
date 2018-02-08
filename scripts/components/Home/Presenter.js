@@ -18,12 +18,11 @@ export default class extends React.Component {
     firebaseAuth().onAuthStateChanged(user => {
       if (user) {
         toggleAuth(user)
+        loadAll()
       } else {
         toggleAuth()
       }
     })
-
-    loadAll()
   }
   render() {
     const { modalOpen } = this.props
