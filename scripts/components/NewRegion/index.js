@@ -2,9 +2,10 @@ import { connect } from 'react-redux'
 
 import Presenter from './Presenter'
 
-function mapStateToProps({ regions: { all } }) {
+function mapStateToProps({ regions: { all }, ui: { addRegion } }) {
   return {
-    regions: all
+    regions: all,
+    open: addRegion
   }
 }
 
