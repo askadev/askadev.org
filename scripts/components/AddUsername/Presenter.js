@@ -5,6 +5,12 @@ import { addUser } from '../../actions/users'
 import FormLayout from '../Layouts/Form'
 import { TextInput, TextareaInput, SelectInput } from '../Inputs'
 
+function regionOptions(regions) {
+  return Object.keys(regions || {}).map(key => {
+    return { value: key, displayName: regions[key].displayName }
+  })
+}
+
 export default class extends React.Component {
 
   handleSubmit = e => {
@@ -31,10 +37,6 @@ export default class extends React.Component {
   }
 
   render() {
-    const regionsOptions = Object.keys(this.props.regions || {}).map(key => {
-        return {value: key, displayName: this.props.regions[key].displayName}
-    })
-
     return (
       <FormLayout title="Add User">
         <form onSubmit={this.handleSubmit}>
@@ -44,7 +46,7 @@ export default class extends React.Component {
 
           <SelectInput
             label="Region"
-            options={regionsOptions}
+            options={regionOptions(this.props.regions)}
             inputRef={val => this.region = val} />
 
           <TextInput

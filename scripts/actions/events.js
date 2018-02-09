@@ -2,16 +2,16 @@ import { refRoot, table } from '../constants/firebase'
 
 import { created, updated } from './shared'
 
-export function createEvent({ startTime, endTime, region, locationData }) {
-  refRoot(table.LOCATIONS, locationData.uid).update(locationData)
+export function createEvent({ startTime, endTime, region, displayName, mapsUrl, locationData }) {
+  if (locationData) refRoot(table.LOCATIONS, locationData.uid).update(locationData)
 
   return refRoot(table.EVENTS).push({
     startTime,
     endTime,
     region,
-    location: locationData.uid,
-    displayName: locationData.displayName,
-    mapsUrl: locationData.mapsUrl,
+    location: locationData.uid || null,
+    displayName: displayName || locationData.displayName,
+    mapsUrl: mapsUrl || locationData.mapsUrl,
     ...created()
   })
 }

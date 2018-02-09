@@ -24,6 +24,11 @@ label {
   display: block;
   margin-bottom: 5px;
   text-transform: lowercase;
+
+  small {
+    font-style: italic;
+    font-size: 0.5em
+  }
 }
 
 fieldset,
@@ -41,6 +46,10 @@ textarea {
   font-family: inherit;
   display: block;
   width: 100%;
+}
+
+textarea {
+  font-size: remCalc(19px);
 }
 
 .button,

@@ -4,10 +4,10 @@ import Presenter from './Presenter'
 
 function mapStateToProps(state) {
   return {
-    firebaseId: state.users.currentUser.firebaseId,
+    isLoggedIn: !!state.users.currentUser.firebaseId,
     displayName: state.users.currentUser.displayName,
     photoURL: state.users.currentUser.photoURL,
-    superAdmins: state.users.superAdmins
+    isSuperAdmin: state.users.isSuperAdmin
   }
 }
 

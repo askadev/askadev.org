@@ -1,4 +1,5 @@
 import * as types from '../constants/actionTypes'
+import { firebaseAuth } from '../constants/firebase'
 
 const initialState = {
   all: {},
@@ -12,7 +13,8 @@ const initialState = {
     region: null,
     skills: null,
     githubUsername: null
-  }
+  },
+  isSuperAdmin: false
 }
 
 export default function(state = initialState, action) {
@@ -20,7 +22,8 @@ export default function(state = initialState, action) {
     case types.RECEIVE_SUPER_ADMINS:
       return {
         ...state,
-        superAdmins: action.users
+        superAdmins: action.users,
+        isSuperAdmin: action.users.hasOwnProperty( firebaseAuth().currentUser.uid )
       }
 
     case types.TOGGLE_AUTH:

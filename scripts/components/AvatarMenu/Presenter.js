@@ -33,8 +33,8 @@ const superAdminLinks = [
   }
 ]
 
-export default ({ firebaseId, photoURL, displayName, superAdmins = {} }) => {
-  if (!firebaseId) return null
+export default ({ isLoggedIn, photoURL, displayName, isSuperAdmin }) => {
+  if (!isLoggedIn) return null
 
   return (
     <div className="avatar-menu">
@@ -48,7 +48,7 @@ export default ({ firebaseId, photoURL, displayName, superAdmins = {} }) => {
             <Link to={link.path}>{link.text}</Link>
           </li>
         ))}
-        {superAdmins.hasOwnProperty(firebaseId) &&
+        {isSuperAdmin &&
           superAdminLinks.map((link, i) => (
             <li key={i}>
               <Link to={link.path}>{link.text}</Link>

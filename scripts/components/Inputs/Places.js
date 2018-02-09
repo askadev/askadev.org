@@ -49,7 +49,7 @@ const AutocompleteItem = ({ formattedSuggestion }) => {
   );
 };
 
-const Places = ({ label, value, placeholder, onChange, options, inputRef, onSelect, ...res }) => {
+const Places = ({ label, value, placeholder, onChange, description, options, inputRef, onSelect, ...res }) => {
   const inputProps = {
     value,
     placeholder,
@@ -61,7 +61,7 @@ const Places = ({ label, value, placeholder, onChange, options, inputRef, onSele
   return (
     <fieldset>
       {label &&
-        <label>{label}</label>
+        <label>{label} <small>{description}</small></label>
       }
       <PlacesAutocomplete
         inputProps={inputProps}
@@ -76,7 +76,7 @@ const Places = ({ label, value, placeholder, onChange, options, inputRef, onSele
           input: ''
         }}
         options={{
-          types: ['establishment', 'geocode'],
+          types: ['establishment'],
           ...options
         }}
         onSelect={onSelect}
