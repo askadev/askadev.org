@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { logout } from '../../utils/auth'
 
 const Avatar = ({ src }) => (
-  <div className="avatar" style={{backgroundImage: `url(${src})`}} />
+  <div className="avatar" style={{ backgroundImage: `url(${src})` }} />
 )
 
 const adminLinks = [
@@ -14,11 +14,11 @@ const adminLinks = [
   },
   {
     path: '/editProfile',
-    text: 'Edit Profile',
+    text: 'Edit Profile'
   },
   {
     path: '/editEvents',
-    text: 'Edit My Events',
+    text: 'Edit My Events'
   }
 ]
 
@@ -29,17 +29,11 @@ const superAdminLinks = [
   },
   {
     path: '/addUsername',
-    text: 'Add Username',
+    text: 'Add Username'
   }
 ]
 
-export default ({
-  firebaseId,
-  photoURL,
-  displayName,
-  toggleUI,
-  superAdmins = {}
-}) => {
+export default ({ firebaseId, photoURL, displayName, superAdmins = {} }) => {
   if (!firebaseId) return null
 
   return (
@@ -49,20 +43,21 @@ export default ({
         <Avatar src={photoURL} />
       </div>
       <ul>
-        {adminLinks.map((link, i) =>
+        {adminLinks.map((link, i) => (
           <li key={i}>
             <Link to={link.path}>{link.text}</Link>
           </li>
-        )}
-        { superAdmins.hasOwnProperty(firebaseId) &&
-          superAdminLinks.map((link, i) =>
+        ))}
+        {superAdmins.hasOwnProperty(firebaseId) &&
+          superAdminLinks.map((link, i) => (
             <li key={i}>
               <Link to={link.path}>{link.text}</Link>
             </li>
-          )
-        }
+          ))}
         <li>
-          <button onClick={logout}>Logout</button>
+          <button className="button" onClick={logout}>
+            Logout
+          </button>
         </li>
       </ul>
     </div>

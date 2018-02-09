@@ -16,7 +16,3 @@ export const RECEIVE_USERS = 'RECEIVE_USERS'
 
 // leftovers
 export const RESET = 'RESET'
-
-// ui
-export const TOGGLE_UI = 'TOGGLE_UI'
-export const RESET_MODAL = 'RESET_MODAL'
