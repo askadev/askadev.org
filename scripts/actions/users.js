@@ -1,6 +1,14 @@
-import { refRoot, refUsers, table } from '../constants/firebase';
+import { refRoot, refUsers, table, currentUserUid } from '../constants/firebase'
+import * as types from '../constants/actionTypes'
 
-export function addUser({ githubId, skills, developingSince, displayName, githubUsername, region }) {
+export function addUser({
+  githubId,
+  skills,
+  developingSince,
+  displayName,
+  githubUsername,
+  region
+}) {
   return refUsers(githubId).update({
     githubId,
     displayName,
@@ -11,4 +19,19 @@ export function addUser({ githubId, skills, developingSince, displayName, github
     uid: githubId,
     photoURL: `https://avatars2.githubusercontent.com/u/${githubId}?v=4`
   })
+}
+
+export function editProfile({ developingSince, url, skills, region }) {
+  return refUsers(currentUserUid()).update({
+    developingSince,
+    url,
+    skills
+  })
+}
+
+export function toggleAuth(user = {}) {
+  return {
+    type: types.TOGGLE_AUTH,
+    user
+  }
 }

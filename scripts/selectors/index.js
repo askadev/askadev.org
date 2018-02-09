@@ -4,7 +4,7 @@ const getCurrentRegion = state => state.regions.currentRegion
 const getEvents = state => state.events.all
 const getUsers = state => state.users.all
 
-const getCurrentUserRegion = state => state.auth.region
+const getCurrentUserRegion = state => state.users.currentUser.region
 
 function filterByRegion(region, filterables = {}) {
   let values = {}

@@ -4,9 +4,9 @@ import Presenter from './Presenter'
 
 function mapStateToProps(state) {
   return {
-    firebaseId: state.auth.firebaseId,
-    displayName: state.auth.displayName,
-    photoURL: state.auth.photoURL,
+    firebaseId: state.users.currentUser.firebaseId,
+    displayName: state.users.currentUser.displayName,
+    photoURL: state.users.currentUser.photoURL,
     superAdmins: state.users.superAdmins
   }
 }
