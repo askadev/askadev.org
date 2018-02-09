@@ -17,8 +17,8 @@ export default class extends React.Component {
       return createRegion(this.state.displayName)
   }
   render() {
-    const { regions, open } = this.props
-    return open ? (
+    const { regions } = this.props
+    return (
       <div>
         <h3>Current Regions</h3>
         {Object.keys(regions).length > 0 ? (
@@ -43,8 +43,6 @@ export default class extends React.Component {
           <button type="submit">Submit</button>
         </form>
       </div>
-    ) : (
-      false
     )
   }
 }

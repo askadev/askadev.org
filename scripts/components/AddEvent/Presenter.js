@@ -20,11 +20,10 @@ export default class extends React.Component {
   submit = e => {
     e.preventDefault()
     e.stopPropagation()
-    console.log('yo subed')
+    console.log('you submitted an event')
   }
   render() {
-    const { open } = this.props
-    return open ? (
+    return (
       <div>
         <h4>Create a new Event!</h4>
         <form onSubmit={this.submit}>
@@ -73,8 +72,6 @@ export default class extends React.Component {
           />
         </form>
       </div>
-    ) : (
-      false
     )
   }
 }

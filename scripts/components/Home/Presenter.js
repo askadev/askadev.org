@@ -2,38 +2,18 @@ import React from 'react'
 
 import Events from '../Events'
 import Mentors from '../Users'
-import NewEvent from '../NewEvent'
-import NewRegion from '../NewRegion'
 import AvatarMenu from '../AvatarMenu'
-import Modal from '../Modal'
+
+import { login } from '../../utils/auth'
 
 import logo from '../../../assets/logo.svg'
 
-import { login } from '../../utils/auth'
-import { firebaseAuth } from '../../constants/firebase'
-
 export default class extends React.Component {
-  componentDidMount() {
-    const { toggleAuth, loadAll } = this.props
-    firebaseAuth().onAuthStateChanged(user => {
-      if (user) {
-        toggleAuth(user)
-        loadAll()
-      } else {
-        toggleAuth()
-      }
-    })
-  }
   render() {
-    const { modalOpen } = this.props
     return (
       <div>
         <AvatarMenu />
-        <Modal>
-          <NewEvent />
-          <NewRegion />
-        </Modal>
-        <div className={`wrapper ${modalOpen ? 'modal-open' : ''}`}>
+        <div>
           <header className="container logo">
             <img alt="Ask A Dev" src={logo} />
             <h2>Free Mentoring from Local Programmers</h2>

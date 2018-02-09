@@ -4,11 +4,16 @@ import { toggleUI } from '../../actions/ui'
 
 import Presenter from './Presenter'
 
-function mapStateToProps({ auth: { uid, photoURL, displayName } }) {
+function mapStateToProps({
+  auth: { uid, photoURL, displayName },
+  users: { superAdmins, allowedUserNames }
+}) {
   return {
     uid,
     displayName,
-    photoURL
+    photoURL,
+    superAdmins,
+    allowedUserNames
   }
 }
 

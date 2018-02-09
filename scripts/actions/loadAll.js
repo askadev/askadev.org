@@ -25,11 +25,11 @@ function generateListeners(dispatch) {
     {
       ref: refRoot(table.REGIONS),
       callback: snapshot => dispatch(receiveRegions(snapshot.val() || {}))
+    },
+    {
+      ref: refRoot(table.SUPER_ADMINS),
+      callback: snapshot => dispatch(recieveSuperAdmins(snapshot.val() || {}))
     }
-    // {
-    //   ref: refRoot(table.SUPER_ADMINS),
-    //   callback: snapshot => dispatch(recieveSuperAdmins(snapshot.val() || {}))
-    // }
   ]
 }
 
