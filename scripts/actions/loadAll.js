@@ -13,6 +13,7 @@ function generateListeners(dispatch) {
         .orderByChild('startTime')
         .startAt(
           moment()
+            .utc()
             .endOf('day')
             .valueOf()
         ),

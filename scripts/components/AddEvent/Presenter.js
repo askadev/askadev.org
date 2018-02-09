@@ -100,7 +100,7 @@ export default class extends React.Component {
           <TextInput
             label="Location Directions URL"
             placeholder="https://www.google.com/maps/place/Pizza+Hut/@38.9431426,-95.384067,12z/data=!4m17!1m11!4m10!1m3!2m2!1d-95.2306018!2d38.9415404!1m5!1m1!1s0x87bf68b9e0785d35:0xf4831e59f5d003f!2m2!1d-95.2439892!2d38.9431635!3m4!1s0x87bf68b9e0785d35:0xf4831e59f5d003f!8m2!3d38.9431635!4d-95.2439892"
-            onChange={mapsUrl => this.setState({ mapsUrl })}
+            onChange={e => this.setState({ mapsUrl: e.target.value })}
             value={this.state.mapsUrl}
           />
 

@@ -9,9 +9,9 @@ export function createEvent({ startTime, endTime, region, displayName, mapsUrl, 
     startTime,
     endTime,
     region,
-    location: locationData.uid || null,
-    displayName: displayName || locationData.displayName,
-    mapsUrl: mapsUrl || locationData.mapsUrl,
+    location: locationData?.uid || null,
+    displayName: displayName || locationData?.displayName,
+    mapsUrl: mapsUrl || locationData?.mapsUrl,
     ...created()
   })
 }
