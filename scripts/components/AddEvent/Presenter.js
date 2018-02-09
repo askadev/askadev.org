@@ -34,7 +34,7 @@ export default class extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    if (!this.date || !this.startTime || !this.endTime || !this.locationData) {
+    if (!this.date || !this.startTime || !this.endTime || !this.state.displayName || !this.state.mapsUrl) {
       return alert('All fields are required')
     }
     const startTime = appendTime.call(this, this.startTime)
