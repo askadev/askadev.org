@@ -14,25 +14,28 @@ const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurren
   </div>
 );
 
-const Events = ({ events, regions, hasCurrentRegion }) => (
-  <div className="events">
-    {Object.keys(events || {})
-      .sort((a,b) => events[a].startTime - events[b].startTime)
-        .map(key => {
-          const event = events[key];
-          return (
-            <Event
-              key={key}
-              displayName={event.displayName}
-              mapsUrl={event.mapsUrl}
-              hasCurrentRegion={hasCurrentRegion}
-              regionName={regions[event.region]?.displayName}
-              startTime={event.startTime}
-              endTime={event.endTime} />
-          )
-        }
-    )}
-  </div>
-);
+const Events = ({ events, regions, hasCurrentRegion }) => {
+  const hasEvents = Object.keys(events).length > 0
+  return hasEvents ? (
+    <div className="events">
+      {Object.keys(events || {})
+        .sort((a,b) => events[a].startTime - events[b].startTime)
+          .map(key => {
+            const event = events[key];
+            return (
+              <Event
+                key={key}
+                displayName={event.displayName}
+                mapsUrl={event.mapsUrl}
+                hasCurrentRegion={hasCurrentRegion}
+                regionName={regions[event.region]?.displayName}
+                startTime={event.startTime}
+                endTime={event.endTime} />
+            )
+          }
+      )}
+    </div>
+  ) : (<div><p>No Events Yet!</p></div>)
+}
 
 export default Events;
