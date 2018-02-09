@@ -1,0 +1,100 @@
+%suggest-container {
+  position: relative;
+}
+
+%suggest-wrapper {
+  color: gray(100);
+  background: rgba($c-white, 0.95);
+  font-size: remCalc(23px);
+  box-shadow: none;
+  border-left: 1px solid gray(0);
+  border-right: 1px solid gray(0);
+  border-bottom: 1px solid gray(0);
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  width: 100%;
+  max-height: 15em;
+  transition: max-height 0.2s;
+  overflow: auto;
+
+  a {
+    color: gray(100);
+  }
+}
+
+%suggest-item {
+  padding: 5px;
+  transition: background 0.2s;
+  line-height: 1.1;
+}
+
+%suggest-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    @extend %suggest-item;
+  }
+}
+
+%suggest-highlight {
+  background: $c-blue;
+  color: $c-white;
+  cursor: pointer;
+}
+
+.places-search {
+  @extend %suggest-container;
+
+  &-container {
+    @extend %suggest-wrapper;
+  }
+
+  &-item {
+    @extend %suggest-item;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    &:hover,
+    &--active {
+      @extend %suggest-highlight;
+    }
+  }
+}
+
+.regions-search {
+  @extend %suggest-container;
+  display: inline-block;
+  vertical-align: bottom;
+
+  &-wrapper {
+    @extend %suggest-wrapper;
+  }
+
+  &-item {
+    @extend %suggest-item;
+    padding: 10px 12px;
+
+    &:hover,
+    &.-active {
+      @extend %suggest-highlight;
+    }
+  }
+
+  input {
+    border: 0;
+    border-bottom: 1px dashed gray(20);
+    transition: border-bottom-color 0.2s;
+    font-size: inherit;
+    text-transform: lowercase;
+    padding: 0;
+    color: $c-blue;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $c-blue;
+    }
+  }
+}

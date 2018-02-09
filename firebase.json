@@ -1,12 +1,19 @@
 {
+  "database": {
+    "rules": "database.rules.bolt"
+  },
   "hosting": {
-    "public": "build",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/.bundle/**",
-      "/.sass-cache",
-      "/.cache"
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }

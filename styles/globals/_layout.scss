@@ -1,0 +1,64 @@
+.container {
+  margin-bottom: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include bp(medium) {
+    // display: flex;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  &.-fill {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background: $c-blue;
+    color: $c-white;
+    align-items: center;
+
+    ::selection {
+      color: $c-yellow;
+      background-color: $c-black;
+    }
+
+    h2,
+    h3 {
+      color: $c-blue;
+      background: $c-white;
+      display: inline-block;
+      padding: 5px;
+    }
+
+    h2 {
+      margin-bottom: remCalc(30px);
+    }
+
+    header,
+    .content {
+      flex: 1 0 50%;
+    }
+  }
+
+  .content {
+    max-width: 690px;
+  }
+}
+
+.helper {
+  font-size: remCalc(16px);
+}
+
+.wrapper {
+  &.modal-open {
+    pointer-events: none;
+    &:after {
+      top: 0;
+      position: absolute;
+      height: 100%;
+      content: '';
+      width: 100%;
+      background: black;
+      opacity: 0.5;
+    }
+  }
+}
