@@ -23,13 +23,13 @@ export default class extends React.Component {
   }
 
   render() {
-    const { regions, onChange } = this.props;
+    const { regions, currentRegion, onChange } = this.props;
 
     return (
       <Downshift
         onChange={onChange}
         onStateChange={({ inputValue }) => this.setState({ inputValue: regions[inputValue]?.displayName || inputValue }) }
-        selectedItem={this.state.inputValue}
+        selectedItem={regions[currentRegion]?.displayName}
         render={({
           getInputProps,
           getItemProps,

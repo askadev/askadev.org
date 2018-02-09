@@ -46,7 +46,7 @@ export default class extends React.Component {
           </div>
         </div>
         <div className="container">
-          <h3>Who?</h3>
+          <h3>the friendliest devs in <RegionSelect /></h3>
           <Mentors />
           <br />
           <a href="#can-i-join">join the crew</a>

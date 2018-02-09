@@ -7,7 +7,8 @@ import Presenter from './Presenter'
 
 function mapStateToProps(state) {
   return {
-    regions: state.regions.all
+    regions: state.regions.all,
+    currentRegion: state.regions.currentRegion
   }
 }
 

@@ -6,7 +6,7 @@ import Presenter from './Presenter';
 
 function mapStateToProps(state) {
   return {
-    events: eventsForCurrentUser(state)
+    events: state.users.isSuperAdmin ? state.events.all : eventsForCurrentUser(state)
   };
 }
 
