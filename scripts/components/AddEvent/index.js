@@ -7,9 +7,8 @@ import Presenter from './Presenter'
 
 function mapStateToProps(state) {
   return {
-    open: state.ui.addEvent,
     userCurrentRegion: state.auth.region,
-    regionDisplayName: state.regions.all[ state.auth.region ]?.displayName
+    regionDisplayName: state.regions.all[state.auth.region]?.displayName
   }
 }
 
