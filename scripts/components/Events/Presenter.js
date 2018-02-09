@@ -17,7 +17,7 @@ const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurren
 const Events = ({ events, regions, hasCurrentRegion }) => (
   <div className="events">
     {Object.keys(events || {})
-      .sort((a,b) => new Date(events[a].startTime) - new Date(events[b].startTime))
+      .sort((a,b) => events[a].startTime - events[b].startTime)
         .map(key => {
           const event = events[key];
           return (
