@@ -1,4 +1,4 @@
-# Bash&Spree Dashboard
+# Ask a Dev Home Page
 
 ## Install
 
@@ -20,4 +20,4 @@ Hit up http://localhost:8080.
 $ yarn run build
 ```
 
-Everything compiles to `/public`
+Everything compiles to `/dist`
