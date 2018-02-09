@@ -16,7 +16,10 @@ const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurren
 
 const Events = ({ events, regions, hasCurrentRegion }) => {
   const hasEvents = Object.keys(events).length > 0
-  return hasEvents ? (
+  if (!hasEvents) {
+    return <p>Stay tuned: we've got local mentors planning for the future.<br /><br /></p>
+  }
+  return (
     <div className="events">
       {Object.keys(events || {})
         .sort((a,b) => events[a].startTime - events[b].startTime)
@@ -35,7 +38,7 @@ const Events = ({ events, regions, hasCurrentRegion }) => {
           }
       )}
     </div>
-  ) : (<div><p>No Events Yet!</p></div>)
+  )
 }
 
 export default Events;
