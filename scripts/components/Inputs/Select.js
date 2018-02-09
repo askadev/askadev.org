@@ -3,6 +3,7 @@ import React from 'react'
 const SelectInput = ({
   label = 'Name',
   inputRef,
+  defaultValue,
   options,
   ...res
 }) => (

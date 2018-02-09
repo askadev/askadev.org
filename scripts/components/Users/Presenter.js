@@ -41,6 +41,8 @@ const Users = ({ users, currentRegion, regions }) => (
   <div className="devs">
     {Object.keys(users || {}).map(key => {
       const user = users[key];
+      if (user.shouldNotDisplay) return null;
+
       return (
         <User
           key={key}

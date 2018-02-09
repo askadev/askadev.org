@@ -5,7 +5,7 @@ import Presenter from './Presenter'
 
 function mapStateToProps(state) {
   return {
-    currentUser: state.users.currentUser,
+    auth: state.users.currentUser,
     regionName: state.regions.all[state.users.currentUser.region]?.displayName
   }
 }

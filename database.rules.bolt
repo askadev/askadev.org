@@ -73,7 +73,7 @@ type UserInfo {
   githubUsername: String | Null,
   photoURL: String | Null,
   region: String | Null,
-  developingSince: Number | Null,
+  developingSince: String | Number | Null,
   skills: String | Null,
   url: String | Null,
   shouldNotDisplay: Boolean | Null

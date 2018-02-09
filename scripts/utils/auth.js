@@ -14,7 +14,6 @@ export function login() {
         const githubData = providerData[0] || {}
         const { uid: githubId } = githubData
 
-
         // save displayName, photoURL, and github id
         if (githubId && uid) {
           refUsers(githubId).once('value', snap => {

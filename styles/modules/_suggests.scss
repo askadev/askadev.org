@@ -92,6 +92,7 @@
     text-transform: lowercase;
     padding: 0;
     color: $c-blue;
+    max-width: 100%;
 
     &:focus {
       outline: none;
