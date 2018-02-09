@@ -1,9 +1,10 @@
 import * as types from '../constants/actionTypes'
 import { refRoot, refUsers, table, currentUserUid } from '../constants/firebase'
 
-export function editProfile({ developingSince, url, skills, region })  {
+export function editProfile({ developingSince, shouldNotDisplay, url, skills, region })  {
   return refUsers(currentUserUid()).update({
     developingSince,
+    shouldNotDisplay,
     url,
     skills
   });

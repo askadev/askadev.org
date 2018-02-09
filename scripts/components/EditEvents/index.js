@@ -5,7 +5,6 @@ import { eventsForCurrentUser } from '../../selectors';
 import Presenter from './Presenter';
 
 function mapStateToProps(state) {
-  console.log( eventsForCurrentUser(state) )
   return {
     events: eventsForCurrentUser(state)
   };
