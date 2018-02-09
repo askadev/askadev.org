@@ -1,6 +1,44 @@
-.admin-pannel {
-  background-color: $c-blue;
-  position: fixed;
-  height: 100%;
-  width: 100%;
+.layout-form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .inner {
+    h2 {
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      fieldset {
+        flex: 1 1 100%;
+        @include bp(medium) {
+          flex: 1 1 49%;
+        }
+      }
+      input {
+        font-size: 1rem;
+        line-height: 2rem;
+        padding: 0 10px;
+        border: 1px solid gray(100);
+        font-family: inherit;
+        display: block;
+        width: 100%;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      button {
+        width: 100%;
+        display: block;
+        background: $c-blue;
+        color: #fff;
+        line-height: 2rem;
+        padding: 0 10px;
+      }
+    }
+  }
 }
