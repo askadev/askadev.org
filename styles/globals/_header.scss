@@ -1,25 +1,25 @@
 .logo {
   display: flex;
   flex-direction: column;
-  margin: 0 0 60px 0;
+  margin: 0 0 60px;
   padding-top: 60px;
 
   @include bp(large) {
-    margin: 0 0 150px 0;
-    padding-top: 150px;
+    margin-bottom: 150px;
+    padding-top: 90px;
   }
 
   img {
-    margin: 0 0 40px;
+    margin: 0 0 60px;
     width: 100%;
-    max-width: 70%;
+    max-width: 220px;
 
     @include bp(large) {
-      max-width: 550px;
+      margin-bottom: 150px;
     }
   }
 
   h2 {
-    font-size: remCalc(38px);
+    font-size: remCalc(50px);
   }
 }

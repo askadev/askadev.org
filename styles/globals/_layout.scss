@@ -16,6 +16,11 @@
     color: $c-white;
     align-items: center;
 
+    ::selection {
+      color: $c-yellow;
+      background-color: $c-black;
+    }
+
     h2,
     h3 {
       background: $c-white;

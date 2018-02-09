@@ -59,3 +59,7 @@ p {
 fieldset {
   border: 0;
 }
+
+::selection {
+  background-color: $c-yellow;
+}

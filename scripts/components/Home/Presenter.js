@@ -20,7 +20,7 @@ export default class extends React.Component {
         <AvatarMenu />
         <header className="container logo">
           <img alt="Ask A Dev" src={logo} />
-          <h2>Free Mentoring from Local Programmers</h2>
+          <div className="content"><h2>Free Mentoring from Local Programmers</h2></div>
         </header>
         <div className="container" id="upcoming-events">
           <h3>Upcoming Events in <RegionSelect /></h3>
