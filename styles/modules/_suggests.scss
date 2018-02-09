@@ -86,13 +86,11 @@
   input {
     border: 0;
     border-bottom: 1px dashed gray(20);
-    width: auto;
     transition: border-bottom-color 0.2s;
     font-size: inherit;
     text-transform: lowercase;
     padding: 0;
     color: $c-blue;
-    max-width: 100%;
 
     &:focus {
       outline: none;

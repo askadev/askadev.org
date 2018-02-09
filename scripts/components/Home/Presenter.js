@@ -23,7 +23,7 @@ export default class extends React.Component {
           <div className="content"><h2>Free Mentoring from Local Programmers</h2></div>
         </header>
         <div className="container" id="upcoming-events">
-          <h3>Upcoming Events in <RegionSelect /></h3>
+          <h2>Upcoming Events in <RegionSelect /></h2>
           <Events />
           <div className="content">
             <p className="helper">We're expanding to Denver, San Francisco, New York, Melbourne, London, and more soon: please check back later for more events or <a href="#can-i-join">start a chapter in your city</a></p>
@@ -46,7 +46,7 @@ export default class extends React.Component {
           </div>
         </div>
         <div className="container">
-          <h3>the friendliest devs in <RegionSelect /></h3>
+          <h2>the friendliest devs in <RegionSelect /></h2>
           <Mentors />
           <br />
           <a href="#can-i-join">join the crew</a>
