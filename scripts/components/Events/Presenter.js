@@ -2,9 +2,6 @@ import React from "react"
 
 import moment from "moment"
 
-const sortByDate = (a, b) =>  new Date(b.startTime) - new Date(a.startTime);
-
-
 const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion }) => (
   <div className="event">
     <div className="event-location">
