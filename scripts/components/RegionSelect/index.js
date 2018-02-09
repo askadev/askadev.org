@@ -1,11 +1,20 @@
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import { changeCurrentRegion } from '../../actions/regions'
 
 import Presenter from './Presenter'
 
-function mapStateToProps({ regions: { all } }) {
+function mapStateToProps(state) {
   return {
-    regions: all
+    regions: state.regions.all
   }
 }
 
-export default connect(mapStateToProps)(Presenter)
+function mapDispatchToProps(dispatch) {
+  return {
+    onChange: bindActionCreators(changeCurrentRegion, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Presenter)

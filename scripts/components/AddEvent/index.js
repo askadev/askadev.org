@@ -1,21 +1,17 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { createEvent } from '../../actions/events'
+import { currentUserUid } from '../../constants/firebase'
 
 import Presenter from './Presenter'
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
   return {
-    onCreate: bindActionCreators(createEvent, dispatch)
+    open: state.ui.addEvent,
+    userCurrentRegion: state.auth.region,
+    regionDisplayName: state.regions.all[ state.auth.region ]?.displayName
   }
 }
 
-function mapStateToProps({ ui: { addEvent } }) {
-  return {
-    open: addEvent
-  }
-}
-
-const Main = connect(mapStateToProps, mapDispatchToProps)(Presenter)
+const Main = connect(mapStateToProps)(Presenter)
 export default Main

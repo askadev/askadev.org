@@ -1,21 +1,30 @@
 // Modules
-@import 'globals/imports/finescss/fine', 'globals/imports/variables';
+@import
+  'globals/imports/finescss/fine',
+  'globals/imports/variables'
+;
 
 // Globals
-@import 'globals/fonts',
+@import
+  'globals/fonts',
   'globals/tags',
   'globals/typography',
   'globals/layout',
   'globals/header',
-  'globals/footer';
+  'globals/footer'
+;
 
 // Modules
-@import 'modules/dev',
+@import
+  'modules/dev',
   'modules/avatar-menu',
   'modules/events',
   'modules/modal',
-  'modules/show-more';
+  'modules/suggests'
+;
 
 // Views
-@import 'views/home';
-@import 'views/admin';
+@import
+  'views/home',
+  'views/admin'
+;

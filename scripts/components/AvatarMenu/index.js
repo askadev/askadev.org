@@ -1,25 +1,22 @@
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import { toggleUI } from '../../actions/ui'
 
 import Presenter from './Presenter'
 
-function mapStateToProps({
-  auth: { uid, photoURL, displayName },
-  users: { superAdmins, allowedUserNames }
-}) {
+function mapStateToProps(state) {
   return {
-    uid,
-    displayName,
-    photoURL,
-    superAdmins,
-    allowedUserNames
+    firebaseId: state.auth.firebaseId,
+    displayName: state.auth.displayName,
+    photoURL: state.auth.photoURL,
+    superAdmins: state.users.superAdmins,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    toggleUI: func => dispatch(toggleUI(func))
+    toggleUI: bindActionCreators(toggleUI, dispatch)
   }
 }
 

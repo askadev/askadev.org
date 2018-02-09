@@ -14,23 +14,21 @@ import { firebaseAuth } from '../../constants/firebase'
 export default class extends React.Component {
   componentDidMount() {
     const { toggleAuth, loadAll } = this.props
-    firebaseAuth().onAuthStateChanged(user => {
-      if (user) {
-        toggleAuth(user)
-        loadAll()
-      } else {
-        toggleAuth()
-      }
-    })
+    loadAll()
+
+    this.removeListener = firebaseAuth().onAuthStateChanged(toggleAuth)
   }
+
+  componentWillUnmount() {
+    this.removeListener()
+  }
+
   render() {
-    const { uid } = this.props
-    const authed = uid ? true : false
+    const authed = !!this.props.uid
 
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Home} />
           <ProtectedRoute
             authed={authed}
             path="/addEvent"
@@ -56,6 +54,7 @@ export default class extends React.Component {
             path="/editProfile"
             component={EditProfile}
           />
+          <Route exact path="/" component={Home} />
         </div>
       </Router>
     )

@@ -1,46 +1,46 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { firebaseAuth } from '../../constants/firebase'
+import { logout } from '../../utils/auth'
 
-import Avatar from '../Avatar'
+const Avatar = ({ src }) => (
+  <div className="avatar" style={{backgroundImage: `url(${src})`}} />
+)
 
-const links = [
+const adminLinks = [
   {
-    id: 1,
     path: '/addEvent',
-    text: 'Add Event',
-    roles: ['admin', 'superAdmin']
+    text: 'Add Event'
   },
-  { id: 5, path: '/addRegion', text: 'Add Region', roles: ['superAdmin'] },
-  { id: 4, path: '/addUsername', text: 'Add Username', roles: ['superAdmin'] },
   {
-    id: 2,
     path: '/editProfile',
     text: 'Edit Profile',
-    roles: ['admin', 'superAdmin']
   },
   {
-    id: 3,
     path: '/editEvents',
     text: 'Edit My Events',
-    roles: ['admin', 'superAdmin']
+  }
+]
+
+const superAdminLinks = [
+  {
+    path: '/addRegion',
+    text: 'Add Region'
+  },
+  {
+    path: '/addUsername',
+    text: 'Add Username',
   }
 ]
 
 export default ({
-  uid,
+  firebaseId,
   photoURL,
   displayName,
   toggleUI,
-  superAdmins = {},
-  allowedUserNames = {}
+  superAdmins = {}
 }) => {
-  if (!uid) return false
-
-  const role = allowedUserNames[uid]
-    ? superAdmins[uid] ? 'superAdmin' : 'admin'
-    : false
+  if (!firebaseId) return null
 
   return (
     <div className="avatar-menu">
@@ -49,16 +49,20 @@ export default ({
         <Avatar src={photoURL} />
       </div>
       <ul>
-        {links.map(link => {
-          if (!link.roles.includes(role)) return
-          return (
-            <li key={link.id}>
+        {adminLinks.map((link, i) =>
+          <li key={i}>
+            <Link to={link.path}>{link.text}</Link>
+          </li>
+        )}
+        { superAdmins.hasOwnProperty(firebaseId) &&
+          superAdminLinks.map((link, i) =>
+            <li key={i}>
               <Link to={link.path}>{link.text}</Link>
             </li>
           )
-        })}
+        }
         <li>
-          <button onClick={() => firebaseAuth().signOut()}>Logout</button>
+          <button onClick={logout}>Logout</button>
         </li>
       </ul>
     </div>

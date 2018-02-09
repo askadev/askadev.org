@@ -1,44 +1,53 @@
 .layout-form {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+
   .inner {
-    h2 {
-      margin-bottom: 40px;
-      padding: 0 20px;
-    }
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      fieldset {
-        flex: 1 1 100%;
-        @include bp(medium) {
-          flex: 1 1 49%;
-        }
-      }
-      input {
-        font-size: 1rem;
-        line-height: 2rem;
-        padding: 0 10px;
-        border: 1px solid gray(100);
-        font-family: inherit;
-        display: block;
-        width: 100%;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-      button {
-        width: 100%;
-        display: block;
-        background: $c-blue;
-        color: #fff;
-        line-height: 2rem;
-        padding: 0 10px;
-      }
-    }
+    padding: 0 20px;
+    width: 100%;
   }
+
+  h2 {
+    margin-bottom: remCalc(40px);
+  }
+}
+
+fieldset {
+  padding: 0;
+  margin: 0 0 remCalc(40px);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  text-transform: lowercase;
+}
+
+fieldset,
+input,
+textarea {
+  max-width: 440px;
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  line-height: 2rem;
+  padding: 0 10px;
+  border: 1px solid gray(100);
+  font-family: inherit;
+  display: block;
+  width: 100%;
+}
+
+.button,
+input[type="submit"] {
+  width: auto;
+  background: $c-blue;
+  border: 0;
+  color: $c-white;
+  cursor: pointer;
 }

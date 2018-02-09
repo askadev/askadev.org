@@ -4,8 +4,15 @@ import moment from 'moment';
 
 const initialState = {
   all: {},
-  currentRegion: null
+  currentRegion: null,
+  // currentRegion: '-L4mv91QzX0yfINYSit-'
 };
+
+// function getRandomRegion(allRegions) {
+//   const regions = Object.keys(allRegions)
+
+//   return regions[ Math.floor(Math.random() * regions.length) ]
+// }
 
 export default function(state = initialState, action) {
   switch(action.type) {
@@ -18,7 +25,7 @@ export default function(state = initialState, action) {
     case types.SET_CURRENT_REGION:
       return {
         ...state,
-        currentRegion: action.region
+        currentRegion: action.regionId
       };
 
     case types.RESET:

@@ -12,7 +12,6 @@ export const RECEIVE_SKILLS = 'RECEIVE_SKILLS'
 export const TOGGLE_AUTH = 'TOGGLE_AUTH'
 // users
 export const RECEIVE_SUPER_ADMINS = 'RECEIVE_SUPER_ADMINS'
-export const RECEIVE_USERNAMES = 'RECEIVE_USERNAMES'
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 
 // leftovers

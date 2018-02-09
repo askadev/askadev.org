@@ -8,6 +8,11 @@
 
     <meta content="Ask a Dev" name="description" />
 
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@askadevorg" />
+    <meta name="twitter:title" content="Free mentoring from local programmers" />
+    <meta name="twitter:description" content="Whether you're a new programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help." />
+    <meta name="twitter:image" content="https://askadev.org/images/og.jpg" />
     <meta property="og:site_name" content="Ask a Dev" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
@@ -25,8 +30,10 @@
     <meta name="msapplication-TileColor" content="#ffc40d" />
     <meta name="theme-color" content="#ffffff" />
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDa8bGiZlbJGZ9SRcQ1K31k8vM8slGzPvA&libraries=places"></script>
-    <script async=true src="https://www.googletagmanager.com/gtag/js?id=UA-113487796-1"></script>
-    <script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-113487796-1');</script>
+    <% if (NODE_ENV === 'production') { %>
+      <script async=true src="https://www.googletagmanager.com/gtag/js?id=UA-113487796-1"></script>
+      <script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-113487796-1');</script>
+    <% } %>
 
     <!-- Hi, mom -->
 

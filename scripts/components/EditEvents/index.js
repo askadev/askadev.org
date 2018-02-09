@@ -1,3 +1,15 @@
-import Presenter from './Presenter'
+import { connect } from 'react-redux';
 
-export default Presenter
+import { eventsForCurrentUser } from '../../selectors';
+
+import Presenter from './Presenter';
+
+function mapStateToProps(state) {
+  console.log( eventsForCurrentUser(state) )
+  return {
+    events: eventsForCurrentUser(state)
+  };
+}
+
+const Main = connect(mapStateToProps)(Presenter);
+export default Main;

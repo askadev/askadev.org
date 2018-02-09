@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes'
 
 const initialState = {
   addEvent: false,
-  editProfile: false,
+  updateProfile: false,
   editEvents: false,
   addUserName: false,
   addRegion: false

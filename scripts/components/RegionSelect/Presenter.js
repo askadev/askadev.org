@@ -1,43 +1,69 @@
 import React from 'react'
 import Downshift from 'downshift'
 
-export default ({ regions = {}, onChange }) => (
-  <Downshift
-    onChange={onChange}
-    render={({
-      getInputProps,
-      getItemProps,
-      isOpen,
-      inputValue,
-      selectedItem,
-      highlightedIndex
-    }) => (
-      <div>
-        <input {...getInputProps({ placeholder: 'Event Region' })} />
-        {isOpen ? (
-          <div style={{ border: '1px solid #ccc' }}>
-            {Object.keys(regions)
-              .filter(
-                i =>
-                  !inputValue ||
-                  regions[i].toLowerCase().includes(inputValue.toLowerCase())
-              )
-              .map((item, index) => (
-                <div
-                  {...getItemProps({ item })}
-                  key={item}
-                  style={{
-                    backgroundColor:
-                      highlightedIndex === index ? 'gray' : 'white',
-                    fontWeight: selectedItem === item ? 'bold' : 'normal'
-                  }}
-                >
-                  {regions[item]}
-                </div>
-              ))}
+function stateReducer(state, changes) {
+  // this prevents the menu from being closed when the user
+  // selects an item with a keyboard or mouse
+  switch (changes.type) {
+    case Downshift.stateChangeTypes.keyDownEnter:
+    case Downshift.stateChangeTypes.clickItem:
+      return {
+        ...changes,
+        isOpen: state.isOpen,
+        highlightedIndex: state.highlightedIndex,
+      }
+    default:
+      return changes
+  }
+}
+
+export default class extends React.Component {
+  state = {
+    inputValue: ''
+  }
+
+  render() {
+    const { regions, onChange } = this.props;
+
+    return (
+      <Downshift
+        onChange={onChange}
+        onStateChange={({ inputValue }) => inputValue && this.setState({ inputValue: regions[inputValue]?.displayName || inputValue }) }
+        selectedItem={this.state.inputValue}
+        render={({
+          getInputProps,
+          getItemProps,
+          isOpen,
+          inputValue,
+          selectedItem,
+          highlightedIndex
+        }) => (
+          <div className="regions-search">
+            <input {...getInputProps({ placeholder: 'portland' })} />
+            {isOpen &&
+              <div className="regions-search-wrapper">
+                {Object.keys(regions)
+                  .filter(
+                    i =>
+                      !inputValue ||
+                      regions[i].displayName.toLowerCase().includes(inputValue.toLowerCase())
+                  )
+                  .map((item, index) => (
+                    <div
+                      {...getItemProps({
+                        key: item,
+                        item,
+                        index
+                      })}
+                      className={`regions-search-item ${highlightedIndex === index ? '-active' : ''}`}>
+                      {regions[item].displayName}
+                    </div>
+                  ))}
+              </div>
+            }
           </div>
-        ) : null}
-      </div>
-    )}
-  />
-)
+        )}
+      />
+    )
+  }
+}

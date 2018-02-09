@@ -1,26 +1,40 @@
+.avatar {
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 .avatar-menu {
   position: absolute;
   top: 20px;
   right: 20px;
   color: $c-blue;
+  text-transform: lowercase;
+  font-size: remCalc(20px);
+
   .inner {
     display: flex;
     align-items: center;
+
     div {
       border-radius: 500px;
       width: 60px;
       height: 60px;
       filter: grayscale(100);
-      margin: 0 0 5px 0;
+      margin: 0 0 5px;
       background-repeat: no-repeat;
       background-size: contain;
     }
+
     small {
       margin-right: 20px;
     }
   }
+
   ul {
     list-style: none;
+    padding: 0;
     text-align: right;
   }
 }

@@ -1,10 +1,13 @@
-import { refRoot, firebaseAuth, table } from '../constants/firebase';
+import { refRoot, refUsers, table } from '../constants/firebase';
 
-export function updateProfile({ tenure, url, skills, region })  {
-  return refRoot(table.USERS.BASE, firebaseAuth().currentUser.uid).update({
+export function addUser({ githubId, skills, tenure, displayName, githubUsername, region }) {
+  return refUsers(githubId).update({
+    githubId,
+    displayName,
+    githubUsername,
+    region,
     tenure,
-    url,
-    skills,
-    region
-  });
+    uid: githubId,
+    photoURL: `https://avatars2.githubusercontent.com/u/${githubId}?v=4`
+  })
 }

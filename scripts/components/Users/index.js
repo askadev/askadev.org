@@ -5,8 +5,11 @@ import { usersForCurrentRegion } from '../../selectors';
 import Presenter from './Presenter';
 
 function mapStateToProps(state) {
+  // TOOD remove this ternary, especailly remove it from a mapStateToProps
+  // TODO currentRegion may belong in UI
   return {
-    users: usersForCurrentRegion(state)
+    users: state.regions.currentRegion ? usersForCurrentRegion(state) : state.users.all,
+    regions: state.regions.all
   };
 }
 

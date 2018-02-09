@@ -14,9 +14,15 @@ firebase.initializeApp(config)
 const ref = firebase.database().ref()
 export const database = firebase.database
 export const firebaseAuth = firebase.auth
+export const currentUserUid = () => firebaseAuth().currentUser.providerData[0].uid;
 
 export const refSuperAdmins = (...args) => {
   args.unshift(table.SUPER_ADMINS)
+  return refRoot(...args)
+}
+
+export const refUsers = (...args) => {
+  args.unshift(table.USERS.GITHUB)
   return refRoot(...args)
 }
 
@@ -29,9 +35,9 @@ export const table = {
   SKILLS: 'skills',
   REGIONS: 'regions',
   EVENTS: 'events',
-  ALLOWED_USERNAMES: 'allowedUsernames',
   USERS: {
-    BASE: 'users',
-    INFO: 'info'
-  }
+    PLAIN: 'users',
+    GITHUB: 'githubUsers'
+  },
+  LOCATIONS: 'locations'
 }

@@ -5,17 +5,13 @@ import moment from 'moment'
 function generateListeners(dispatch) {
   return [
     {
-      ref: refRoot(table.USERS.BASE),
+      ref: refRoot(table.USERS.GITHUB),
       callback: snapshot => dispatch(receiveUsers(snapshot.val() || {}))
-    },
-    {
-      ref: refRoot(table.ALLOWED_USERNAMES),
-      callback: snapshot => dispatch(receiveUsernames(snapshot.val() || {}))
     },
     {
       ref: refRoot(table.EVENTS)
         .orderByChild('startTime')
-        .endAt(
+        .startAt(
           moment()
             .endOf('day')
             .valueOf()
@@ -51,13 +47,6 @@ function receiveUsers(users) {
   return {
     type: types.RECEIVE_USERS,
     users
-  }
-}
-
-function receiveUsernames(usernames) {
-  return {
-    type: types.RECEIVE_USERNAMES,
-    usernames
   }
 }
 

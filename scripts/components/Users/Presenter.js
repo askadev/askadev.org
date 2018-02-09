@@ -4,19 +4,19 @@ import moment from "moment"
 
 const User = ({
   githubUsername,
-  githubUserId,
+  photoURL,
   url,
-  name,
+  displayName,
   tenure,
   skills
 }) => (
   <div className="dev-box">
     <header>
-      <a href={`https://github.com/${github}`}>
-        <img src={`https://avatars0.githubusercontent.com/u/${githubUserId}?s=460&v=4`} alt={name} />
+      <a href={`https://github.com/${githubUsername}`}>
+        <img src={photoURL} alt={name} />
       </a>
       <a href={url}>
-        <h4>{name}</h4>
+        <h4>{displayName}</h4>
         <small>{tenure} years</small>
       </a>
     </header>
@@ -28,15 +28,16 @@ const Users = ({ users }) => (
   <div className="devs">
     {Object.keys(users || {}).map(key => {
       const user = users[key];
-      return
+      return (
         <User
           key={key}
           githubUsername={user.githubUsername}
-          githubUserId={user.githubUserId}
+          photoURL={user.photoURL}
           url={user.url}
           name={user.name}
           tenure={user.tenure}
           skills={user.skills} />
+      )
     })}
   </div>
 );

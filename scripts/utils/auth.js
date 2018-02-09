@@ -1,32 +1,48 @@
-import { firebaseAuth, refRoot, table } from '../constants/firebase'
+import { firebaseAuth, refRoot, refUsers, table } from '../constants/firebase'
 
 export function login() {
   const provider = new firebaseAuth.GithubAuthProvider()
 
-  firebaseAuth()
-    .signInWithPopup(provider)
-    .then(function(result) {
-      const token = result.credential.accessToken
-      const { displayName, photoURL, uid = false, providerData } = result.user
+  // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(noop => {
+    firebaseAuth()
+      .signInWithPopup(provider)
+      .then(function(result) {
+        const token = result.credential.accessToken
+        const { displayName, photoURL, uid = false, providerData } = result.user
 
-      // grab githubID from providerData
-      const githubData = providerData[0] || {}
-      const { uid: githubID } = githubData
+        // grab githubID from providerData
+        const githubData = providerData[0] || {}
+        const { uid: githubId } = githubData
 
-      // save displayName, photoURL, and github id
-      if (uid) {
-        refRoot(table.USERS.BASE)
-          .child(uid)
-          .set({
-            displayName,
-            photoURL,
-            githubID
+
+        // save displayName, photoURL, and github id
+        if (githubId && uid) {
+          refUsers(githubId).once('value', snap => {
+            if (snap.exists()) {
+              refUsers(githubId)
+                .update({
+                  uid: githubId,
+                  firebaseId: uid,
+                  displayName,
+                  photoURL,
+                  githubId
+                })
+
+              refRoot(table.USERS.PLAIN, uid)
+                .update({
+                  uid,
+                  githubId,
+                  displayName,
+                  photoURL
+                })
+            }
           })
-      } else {
-        // Log failed signup info here
-      }
-    })
-    .catch(error => console.warn(error))
+        } else {
+          // Log failed signup info here
+        }
+      })
+      .catch(error => console.warn(error))
+  // })
 }
 
 export function logout() {

@@ -2,8 +2,7 @@ import * as types from '../constants/actionTypes'
 
 const initialState = {
   all: {},
-  superAdmins: {},
-  allowedUserNames: {}
+  superAdmins: {}
 }
 
 export default function(state = initialState, action) {
@@ -12,12 +11,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         superAdmins: action.users
-      }
-
-    case types.RECEIVE_USERNAMES:
-      return {
-        ...state,
-        allowedUserNames: action.usernames
       }
 
     case types.RECEIVE_USERS:

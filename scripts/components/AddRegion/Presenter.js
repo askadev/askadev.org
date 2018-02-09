@@ -2,47 +2,31 @@ import React from 'react'
 
 import { createRegion } from '../../actions/regions'
 
-export default class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      displayName: ''
-    }
-  }
+import FormLayout from '../Layouts/Form'
+import { TextInput } from '../Inputs'
 
+export default class extends React.Component {
   submit = e => {
     e.preventDefault()
-    e.stopPropagation()
-    if (this.state.displayName.length > 0)
-      return createRegion(this.state.displayName)
+    if (!this.name || !this.name.value) return
+
+    createRegion(this.name.value)
+      .then(res => this.name.value = '')
+      .catch(res => alert('It failed'))
   }
   render() {
-    const { regions } = this.props
     return (
-      <div>
-        <h3>Current Regions</h3>
-        {Object.keys(regions).length > 0 ? (
-          <ul>
-            {Object.keys(regions).map(r => (
-              <li key={r}>{regions[r].displayName}</li>
-            ))}
-          </ul>
-        ) : (
-          'No Regions Found'
-        )}
+      <FormLayout title="New Region">
+        Currently: {Object.values(this.props.regions || {}).map(item => item.displayName).join(', ')}
+        <br />
+        <br />
         <form onSubmit={this.submit}>
-          <fieldset>
-            <label>New Region</label>
-            <input
-              value={this.state.displayName}
-              onChange={({ target: { value: displayName } }) =>
-                this.setState({ displayName })
-              }
-            />
-          </fieldset>
-          <button type="submit">Submit</button>
+          <TextInput
+            label="New Region"
+            inputRef={val => this.name = val} />
+          <input type="submit" value="Add" />
         </form>
-      </div>
+      </FormLayout>
     )
   }
 }

@@ -1,20 +1,21 @@
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import { toggleAuth } from '../../actions/auth'
 import loadAll from '../../actions/loadAll'
 
 import Presenter from './Presenter'
 
-function mapDispatchToProps(dispatch) {
+function mapStateToProps(state) {
   return {
-    toggleAuth: user => dispatch(toggleAuth(user)),
-    loadAll: () => dispatch(loadAll())
+    uid: state.auth.uid
   }
 }
 
-function mapStateToProps({ auth: { uid } }) {
+function mapDispatchToProps(dispatch) {
   return {
-    uid
+    toggleAuth: bindActionCreators(toggleAuth, dispatch),
+    loadAll: bindActionCreators(loadAll, dispatch)
   }
 }
 
