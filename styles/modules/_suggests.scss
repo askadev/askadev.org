@@ -67,7 +67,7 @@
 .regions-search {
   @extend %suggest-container;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: bottom;
 
   &-wrapper {
     @extend %suggest-wrapper;

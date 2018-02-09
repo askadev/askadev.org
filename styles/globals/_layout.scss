@@ -29,6 +29,10 @@
       padding: 5px;
     }
 
+    h2 {
+      margin-bottom: remCalc(30px);
+    }
+
     header,
     .content {
       flex: 1 0 50%;

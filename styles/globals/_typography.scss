@@ -19,7 +19,7 @@ h1 {
 
 h2 {
   font-size: remCalc(48px);
-  margin-bottom: 30px;
+  margin-bottom: remCalc(60px);
 }
 
 h3 {
@@ -27,7 +27,7 @@ h3 {
 }
 
 h4 {
-  font-size: remCalc(28px);
+  font-size: remCalc(20px);
 }
 
 p {
