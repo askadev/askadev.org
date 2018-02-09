@@ -13,6 +13,12 @@
   text-transform: lowercase;
   font-size: remCalc(20px);
 
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: right;
+  }
+
   .inner {
     display: flex;
     align-items: center;
@@ -31,16 +37,11 @@
       margin-right: 20px;
     }
   }
+
   .button {
     font-size: 0.8rem;
     margin-top: 10px;
     padding: 0 10px;
     font-family: inherit;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    text-align: right;
   }
 }

@@ -26,7 +26,7 @@ export default class extends React.Component {
           <h3>Upcoming Events in <RegionSelect /></h3>
           <Events />
           <div className="content">
-            <p className="helper">We're expanding to Seattle, Denver, San Francisco, New York, Melbourne, London, and more soon: please check back later for more events or <a href="#can-i-join">start a chapter in your city</a></p>
+            <p className="helper">We're expanding to Denver, San Francisco, New York, Melbourne, London, and more soon: please check back later for more events or <a href="#can-i-join">start a chapter in your city</a></p>
           </div>
         </div>
         <div className="container -fill">

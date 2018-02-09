@@ -28,7 +28,7 @@ export default class extends React.Component {
     return (
       <Downshift
         onChange={onChange}
-        onStateChange={({ inputValue }) => inputValue && this.setState({ inputValue: regions[inputValue]?.displayName || inputValue }) }
+        onStateChange={({ inputValue }) => this.setState({ inputValue: regions[inputValue]?.displayName || inputValue }) }
         selectedItem={this.state.inputValue}
         render={({
           getInputProps,
@@ -39,7 +39,7 @@ export default class extends React.Component {
           highlightedIndex
         }) => (
           <div className="regions-search">
-            <input {...getInputProps({ placeholder: 'portland' })} />
+            <input {...getInputProps({ placeholder: 'portland' })} autoFocus={true} />
             {isOpen &&
               <div className="regions-search-wrapper">
                 {Object.keys(regions)

@@ -9,7 +9,8 @@ function mapStateToProps(state) {
   // TODO currentRegion may belong in UI
   return {
     users: state.regions.currentRegion ? usersForCurrentRegion(state) : state.users.all,
-    regions: state.regions.all
+    regions: state.regions.all,
+    currentRegion: state.regions.all[ state.regions.currentRegion ]?.displayName
   };
 }
 

@@ -3,12 +3,13 @@
 }
 
 %suggest-wrapper {
-  background: $c-white;
   color: gray(100);
-  box-shadow: 0 2px 6px -1px rgba($c-black, .25);
-  border-left: 1px solid gray(10);
-  border-right: 1px solid gray(10);
-  border-bottom: 1px solid gray(10);
+  background: rgba($c-white, 0.95);
+  font-size: remCalc(23px);
+  box-shadow: none;
+  border-left: 1px solid gray(0);
+  border-right: 1px solid gray(0);
+  border-bottom: 1px solid gray(0);
   position: absolute;
   top: 100%;
   z-index: 1;
@@ -39,7 +40,8 @@
 }
 
 %suggest-highlight {
-  background: gray(0);
+  background: $c-blue;
+  color: $c-white;
   cursor: pointer;
 }
 
@@ -69,17 +71,11 @@
 
   &-wrapper {
     @extend %suggest-wrapper;
-    background: rgba($c-white, 0.95);
-    font-size: remCalc(21px);
-    box-shadow: none;
-    border-left-color: gray(0);
-    border-bottom-color: gray(0);
-    border-right-color: gray(0);
   }
 
   &-item {
     @extend %suggest-item;
-    padding: 10px 8px 0;
+    padding: 10px 12px;
 
     &:hover,
     &.-active {
@@ -95,6 +91,7 @@
     font-size: inherit;
     text-transform: lowercase;
     padding: 0;
+    color: $c-blue;
 
     &:focus {
       outline: none;

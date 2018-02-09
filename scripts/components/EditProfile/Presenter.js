@@ -11,7 +11,7 @@ export default class extends React.Component {
 
     editProfile({
       skills: this.skills.value || null,
-      tenure: this.tenure.value || null,
+      developingSince: this.developingSince.value || null,
       url: this.url.value || null
     })
     .then(noop => alert('Profile updated'))
@@ -34,8 +34,8 @@ export default class extends React.Component {
             label="Tenure (years developing)"
             placeholder="3+"
             maxLength="3"
-            defaultValue={this.props.auth.tenure}
-            inputRef={val => this.tenure = val}
+            defaultValue={this.props.auth.developingSince}
+            inputRef={val => this.developingSince = val}
             />
           <TextInput
             label="URL"

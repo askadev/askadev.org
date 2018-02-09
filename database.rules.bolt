@@ -73,9 +73,10 @@ type UserInfo {
   githubUsername: String | Null,
   photoURL: String | Null,
   region: String | Null,
-  tenure: String | Null,
+  developingSince: Number | Null,
   skills: String | Null,
-  url: String | Null
+  url: String | Null,
+  shouldNotDisplay: Boolean | Null
 }
 
 path /users {

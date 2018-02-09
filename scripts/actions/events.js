@@ -19,7 +19,6 @@ export function createEvent({ startTime, endTime, region, locationData }) {
 export function updateEvent({
   startTime,
   endTime,
-  region,
   uid,
   locationData
 }) {
@@ -28,7 +27,6 @@ export function updateEvent({
   return refRoot(table.EVENTS, uid).update({
     startTime,
     endTime,
-    region,
     location: locationData.uid,
     displayName: locationData.displayName,
     mapsUrl: locationData.mapsUrl,

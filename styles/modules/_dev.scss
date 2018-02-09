@@ -18,9 +18,18 @@
     max-width: calc( 100% / 4 );
   }
 
+  a {
+    display: block;
+
+    &:first-child {
+      margin-right: 15px;
+    }
+  }
+
   header {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
   }
 
   img {
@@ -28,11 +37,11 @@
     width: 80px;
     height: auto;
     filter: grayscale(100);
-    margin: 0 15px 10px 0;
   }
 
   h4 {
     color: $c-blue;
+    margin-bottom: 0;
   }
 
   small {
