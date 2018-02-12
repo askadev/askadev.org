@@ -17,12 +17,20 @@ function yearOptions() {
 }
 
 export default class extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      developingSince: props.developingSince
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault()
 
     editProfile({
       skills: this.skills.value || null,
-      developingSince: this.developingSince.value || null,
+      developingSince: this.state.developingSince || null,
       url: this.url.value || null,
       shouldNotDisplay: this.shouldNotDisplay.checked || null
     })
@@ -46,11 +54,12 @@ export default class extends React.Component {
           />
 
           <SelectInput
-            label="Tenure (years developing)"
-            key={auth.developingSince}
+            label="Grinding since"
+            value={this.state.developingSince}
             defaultValue={auth.developingSince}
+            onChange={e => this.setState({ developingSince: e.target.value })}
             options={yearOptions()}
-            inputRef={val => (this.developingSince = val)}
+            inputRef={val => this.developingSince = val}
           />
 
           <TextInput
@@ -62,7 +71,7 @@ export default class extends React.Component {
           <CheckboxInput
             label="Hide Profile"
             defaultChecked={auth.shouldNotDisplay}
-            inputRef={val => (this.shouldNotDisplay = val)}
+            inputRef={val => this.shouldNotDisplay = val}
           />
           <input type="submit" className="button" value="Update" />
         </form>

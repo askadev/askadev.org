@@ -39,7 +39,7 @@ export default class extends React.Component {
           highlightedIndex
         }) => (
           <div className="regions-search">
-            <input {...getInputProps({ placeholder: 'the world' })} spellcheck="false" />
+            <input {...getInputProps({ placeholder: 'the world' })} spellCheck="false" />
             {isOpen &&
               <div className="regions-search-wrapper">
                 {Object.keys(regions)

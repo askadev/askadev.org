@@ -84,7 +84,10 @@ path /users {
 }
 
 path /users/{userId} is UserInfo {
-  write() { isUser(userId) || isSuperAdmin() }
+  write() {
+    (hasApprovedGithub() && isUser(userId)) ||
+    isSuperAdmin()
+  }
 }
 
 path /githubUsers {
@@ -92,7 +95,17 @@ path /githubUsers {
 }
 
 path /githubUsers/{userId} is UserInfo {
-  write() { prior(root.githubUsers[userId].firebaseId) === null || isUser(root.githubUsers[userId].firebaseId) || isSuperAdmin() }
+  write() {
+    (
+      root.githubUsers[userId] !== null &&
+      prior(root.githubUsers[userId].firebaseId) === null
+    ) ||
+    (
+      hasApprovedGithub() &&
+      isUser(root.githubUsers[userId].firebaseId)
+    ) ||
+    isSuperAdmin()
+  }
 }
 
 path /superAdmins {
@@ -103,6 +116,7 @@ isUser(uid) { auth.uid === uid }
 everyone() { auth.uid == null || auth != null }
 isAuthed() { auth !== null }
 isSuperAdmin() { root.superAdmins[auth.uid] !== null }
+hasApprovedGithub() { root.githubUsers[ root.users[auth.uid].githubId ] !== null }
 
 type TimeString extends String {
   validate() { this.length > 19 && this.length < 25 && this.test(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.?\d{3}?Z$/) }

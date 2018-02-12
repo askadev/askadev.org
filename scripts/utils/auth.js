@@ -34,6 +34,9 @@ export function login() {
                   displayName,
                   photoURL
                 })
+            } else {
+              alert('Thank you for your interest; please send us an email if you want to become a mentor.')
+              logout();
             }
           })
         } else {

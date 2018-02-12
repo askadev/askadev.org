@@ -1,5 +1,5 @@
 import * as types from '../constants/actionTypes'
-import { firebaseAuth } from '../constants/firebase'
+import { firebaseAuth, currentUserUid } from '../constants/firebase'
 
 const initialState = {
   all: {},
@@ -31,8 +31,6 @@ export default function(state = initialState, action) {
         ...state,
         currentUser: {
           ...state.currentUser,
-          uid: action.user?.providerData[0].uid,
-          firebaseId: action.user?.uid,
           ...state.all[action.user?.providerData[0].uid]
         }
       }
@@ -43,7 +41,7 @@ export default function(state = initialState, action) {
         all: action.users,
         currentUser: {
           ...state.currentUser,
-          ...action.users[state.currentUser?.uid]
+          ...action.users[ currentUserUid() ]
         }
       }
 

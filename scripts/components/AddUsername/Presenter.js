@@ -1,5 +1,7 @@
 import React from 'react'
 
+import moment from 'moment'
+
 import { addUser } from '../../actions/users'
 
 import FormLayout from '../Layouts/Form'
@@ -8,6 +10,16 @@ import { TextInput, TextareaInput, SelectInput } from '../Inputs'
 function regionOptions(regions) {
   return Object.keys(regions || {}).map(key => {
     return { value: key, displayName: regions[key].displayName }
+  })
+}
+
+function yearOptions() {
+  const maxYears = 30
+  const baseYear = moment().year() - maxYears
+
+  return [...Array(30)].map((i, increment) => {
+    const nextYear = `${increment + baseYear}`
+    return { value: nextYear, displayName: nextYear }
   })
 }
 
@@ -49,10 +61,11 @@ export default class extends React.Component {
             options={regionOptions(this.props.regions)}
             inputRef={val => this.region = val} />
 
-          <TextInput
-            label="Tenure"
-            maxLength="3"
-            inputRef={val => this.tenure = val} />
+          <SelectInput
+            label="Tenure (years developing)"
+            options={yearOptions()}
+            inputRef={val => this.developingSince = val}
+          />
 
           <TextareaInput
             label="Skills"

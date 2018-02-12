@@ -14,7 +14,7 @@ firebase.initializeApp(config)
 const ref = firebase.database().ref()
 export const database = firebase.database
 export const firebaseAuth = firebase.auth
-export const currentUserUid = () => firebaseAuth().currentUser.providerData[0].uid;
+export const currentUserUid = () => firebaseAuth().currentUser?.providerData[0].uid;
 
 export const refSuperAdmins = (...args) => {
   args.unshift(table.SUPER_ADMINS)
