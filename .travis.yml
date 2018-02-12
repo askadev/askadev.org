@@ -1,0 +1,16 @@
+language: node_js
+
+node_js: 8
+
+cache: yarn
+
+before_script:
+  - yarn global add firebase-tools
+
+branches:
+  only:
+  - master
+
+script:
+  - yarn build
+  - firebase deploy --token $FIREBASE_TOKEN
