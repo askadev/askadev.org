@@ -1,6 +1,18 @@
 .copyright {
   color: gray(50);
   text-align: left;
-  font-size: 18px;
+  font-size: remCalc(18px);
   margin-bottom: 40px;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  svg {
+    display: inline-block;
+    height: auto;
+    width: 1.4em;
+    vertical-align: middle;
+    fill: currentColor;
+  }
 }

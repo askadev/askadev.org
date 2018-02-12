@@ -6,6 +6,7 @@ cache: yarn
 
 before_script:
   - yarn global add firebase-tools
+  - yarn global add firebase-bolt
 
 branches:
   only:

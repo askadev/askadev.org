@@ -1,11 +1,11 @@
-import { firebaseAuth, refRoot, table } from '../constants/firebase'
+import { firebaseAuth, refRoot, refUsers, table } from '../constants/firebase'
 import * as types from '../constants/actionTypes'
 import moment from 'moment'
 
 function generateListeners(dispatch) {
   return [
     {
-      ref: refRoot(table.USERS.GITHUB),
+      ref: refUsers(),
       callback: snapshot => dispatch(receiveUsers(snapshot.val() || {}))
     },
     {
