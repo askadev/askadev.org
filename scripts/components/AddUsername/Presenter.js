@@ -34,13 +34,13 @@ export default class extends React.Component {
           githubId: data.id,
           githubUsername: this.username.value,
           region: this.region.value,
-          developingSince: this.developingSince.value || null,
-          skills: this.skills.value || null,
+          developingSince: this.tenure?.value || null,
+          skills: this.skills?.value || null,
           displayName: data.name
         })
         .then(res => {
           this.username.value = ''
-          this.developingSince.value = ''
+          this.tenure.value = ''
           this.skills.value = ''
         })
         .catch(res => alert('It failed'))
