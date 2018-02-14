@@ -23,10 +23,19 @@ export default function(state = initialState, action) {
       return {
         ...state,
         superAdmins: action.users,
-        isSuperAdmin: action.users.hasOwnProperty( firebaseAuth().currentUser.uid )
+        isSuperAdmin: action.users.hasOwnProperty(
+          firebaseAuth().currentUser.uid
+        )
       }
 
-    case types.TOGGLE_AUTH:
+    case types.LOGOUT:
+      return {
+        ...state,
+        currentUser: initialState.currentUser,
+        isSuperAdmin: false
+      }
+
+    case types.LOGIN:
       return {
         ...state,
         currentUser: {
@@ -41,7 +50,7 @@ export default function(state = initialState, action) {
         all: action.users,
         currentUser: {
           ...state.currentUser,
-          ...action.users[ currentUserUid() ]
+          ...action.users[currentUserUid()]
         }
       }
 
