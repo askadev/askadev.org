@@ -84,6 +84,16 @@ export default class extends React.Component {
             </p>
           </div>
         </div>
+        <div className="container">
+          <header>
+            <h3>I recently attended an event. How do I give feedback?</h3>
+          </header>
+          <div className="content">
+            <p>
+              While we want to remain decentralized, we also want to make sure our mentors are a positive benefit to their community. Please reach out to us at <a href="mailto:service@askadev.org">service@askadev.org</a> with all comments and criticisms.
+            </p>
+          </div>
+        </div>
         <div className="container" id="can-i-join">
           <header>
             <h3>Can I join?</h3>
