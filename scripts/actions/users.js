@@ -36,9 +36,19 @@ export function editProfile({
   })
 }
 
-export function toggleAuth(user = {}) {
+export function toggleAuth(user) {
+  return dispatch => (user ? dispatch(login(user)) : dispatch(logout()))
+}
+
+export function logout() {
   return {
-    type: types.TOGGLE_AUTH,
+    type: types.LOGOUT
+  }
+}
+
+export function login(user = {}) {
+  return {
+    type: types.LOGIN,
     user
   }
 }

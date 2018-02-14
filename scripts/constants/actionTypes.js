@@ -9,7 +9,8 @@ export const SET_CURRENT_REGION = 'SET_CURRENT_REGION'
 export const RECEIVE_SKILLS = 'RECEIVE_SKILLS'
 
 // auth
-export const TOGGLE_AUTH = 'TOGGLE_AUTH'
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
 // users
 export const RECEIVE_SUPER_ADMINS = 'RECEIVE_SUPER_ADMINS'
 export const RECEIVE_USERS = 'RECEIVE_USERS'
