@@ -26,7 +26,7 @@ export default class extends React.Component {
           <h2>Upcoming Events in <RegionSelect /></h2>
           <Events />
           <div className="content">
-            <p className="helper">We're expanding to Denver, San Francisco, New York, Melbourne, London, and more soon: please check back later for more events or <a href="#can-i-join">start a chapter in your city</a></p>
+            <p className="helper">We're expanding to San Francisco, New York, Melbourne, London, and more soon: please check back later for more events or <a href="#can-i-join">start a chapter in your city</a></p>
           </div>
         </div>
         <div className="container -fill">
@@ -84,16 +84,27 @@ export default class extends React.Component {
             </p>
           </div>
         </div>
-        <div className="container">
+        <div className="container" id="feedback">
           <header>
-            <h3>I recently attended an event. How do I give feedback?</h3>
+            <h3>How do I give feedback from an event?</h3>
           </header>
           <div className="content">
             <p>
-              While we want to remain decentralized, we also want to make sure our mentors are a positive benefit to their community. Please reach out to us at <a href="mailto:service@askadev.org">service@askadev.org</a> with all comments and criticisms.
+              While we want to remain decentralized, we also want to make sure our mentors are a positive benefit to their community. Please reach out to <a href="mailto:service@askadev.org">service@askadev.org</a> with all comments and criticisms.
             </p>
           </div>
         </div>
+        <div className="container" id="terms">
+          <header>
+            <h3>What happens if something went wrong?</h3>
+          </header>
+          <div className="content">
+            <p>
+              Sorry to hear that...but any services or advice you receive at an Ask a Dev event or by an Ask a Dev mentor comes without warranty of any kind. For more, please see <a href="https://github.com/askadev/community-standards#liability">our community standards</a> on liability.
+            </p>
+          </div>
+        </div>
+
         <div className="container" id="can-i-join">
           <header>
             <h3>Can I join?</h3>
