@@ -13,8 +13,8 @@ function generateListeners(dispatch) {
         .orderByChild('startTime')
         .startAt(
           moment()
+            .startOf('day')
             .utc()
-            .endOf('day')
             .valueOf()
         ),
       callback: snapshot => dispatch(receiveEvents(snapshot.val() || {}))
