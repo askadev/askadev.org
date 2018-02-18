@@ -11,6 +11,10 @@
     ],
     "rewrites": [
       {
+        "source": "/calendar-feeds/**",
+        "function": "calendarFeeds"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
