@@ -6,14 +6,13 @@ const timezone = moment.tz.guess();
 
 const maxEvents = 4
 
-const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion }) => {
-  const isEurope = timezone.includes('Europe')
+const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion, uses24hFormat }) => {
 
-  const europeTime = (start, end) => `${moment.tz(start, "America/Los_Angeles").format('DD.MM.YY')} ${moment.tz(start, "America/Los_Angeles").format('HH')}-${moment.tz(end, "America/Los_Angeles").format('HH')}`
+  const time24h = (start, end) => `${moment.utc(start).format('DD.MM.YY')} ${moment.utc(start).format('HH')}-${moment.utc(end).format('HH')}`
 
-  const americanTime = (start, end) => `${moment.tz(start, "America/Los_Angeles").format('MM.DD.YY')} ${moment.tz(start, "America/Los_Angeles").format('h')}-${moment.tz(endTime, "America/Los_Angeles").format('ha')}`
+  const time12h = (start, end) => `${moment.utc(start).format('MM.DD.YY')} ${moment.utc(start).format('h')}-${moment.utc(end).format('ha')}`
 
-  const eventTime = isEurope ? europeTime(startTime, endTime) : americanTime(startTime, endTime)
+  const eventTime = uses24hFormat ? time24h(startTime, endTime) : time12h(startTime, endTime)
   
   return (
     <div className="event">
@@ -69,6 +68,7 @@ export default class extends React.Component {
               displayName={event.displayName}
               mapsUrl={event.mapsUrl}
               hasCurrentRegion={hasCurrentRegion}
+              uses24hFormat={regions[event.region]?.uses24hFormat}
               regionName={regions[event.region]?.displayName}
               startTime={event.startTime}
               endTime={event.endTime} />

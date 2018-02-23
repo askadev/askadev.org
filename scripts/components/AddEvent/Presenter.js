@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 import {
   DateInput,
@@ -14,11 +15,10 @@ import FormLayout from '../Layouts/Form'
 import { createEvent } from '../../actions/events'
 
 function appendTime(times) {
-  return this.date
-    .clone()
-    .hours(times[0])
-    .minutes(times[1])
-    .utc()
+  return moment.utc( 
+    this.date)
+      .hours(times[0])
+      .minutes(times[1]) 
     .valueOf()
 }
 
