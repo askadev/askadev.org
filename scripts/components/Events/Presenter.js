@@ -1,19 +1,18 @@
 import React from "react"
 
-import moment from "moment-timezone"
-
-const timezone = moment.tz.guess();
+import moment from "moment"
 
 const maxEvents = 4
 
+const time24h = (start, end) => `${moment.utc(start).format('HH')}-${moment.utc(end).format('HH[h]')}`
+
+const time12h = (start, end) => `${moment.utc(start).format('h')}-${moment.utc(end).format('ha')}`.slice(0, -1)
+
 const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion, uses24hFormat }) => {
+  const startTimeFormatted = moment.utc(startTime).format('MM.DD.YY')
 
-  const time24h = (start, end) => `${moment.utc(start).format('MM.DD.YY')} ${moment.utc(start).format('HH')}-${moment.utc(end).format('HH')}`
+  const endTimeFormatted = uses24hFormat ? time24h(startTime, endTime) : time12h(startTime, endTime)
 
-  const time12h = (start, end) => `${moment.utc(start).format('MM.DD.YY')} ${moment.utc(start).format('h')}-${moment.utc(end).format('ha')}`
-
-  const eventTime = uses24hFormat ? time24h(startTime, endTime) : time12h(startTime, endTime)
-  
   return (
     <div className="event">
       <div className="event-location">
@@ -22,7 +21,10 @@ const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurren
           <small>{regionName}</small>
         }
       </div>
-      <div className="event-time">{eventTime}</div>
+      <time dateTime={moment.utc(startTime).format()} className="event-time">
+        {startTimeFormatted}
+        <span>{endTimeFormatted}</span>
+      </time>
     </div>
   );
 }
@@ -44,14 +46,15 @@ export default class extends React.Component {
   }
 
   render() {
-    const { events, regions, hasCurrentRegion } = this.props
+    const { events, regions, currentRegion } = this.props
 
     const eventKeys = Object.keys(events)
     const sortedEvents = eventKeys.sort((a,b) => events[a].startTime - events[b].startTime)
     const eventCount = eventKeys.length
 
     if (eventCount === 0) {
-      return <p>Stay tuned: we've got local mentors planning for the future.<br /><br /></p>
+      const subjectLine = encodeURIComponent(`What's up in ${regions[currentRegion]?.displayName}?`)
+      return <p>We're cold in {regions[currentRegion]?.displayName} right now. <a href={`mailto:request@askadev.org?subject=${subjectLine}`}>Shout us</a> for more information.<br /><br /></p>
     }
 
     return (
@@ -67,7 +70,7 @@ export default class extends React.Component {
               key={key}
               displayName={event.displayName}
               mapsUrl={event.mapsUrl}
-              hasCurrentRegion={hasCurrentRegion}
+              hasCurrentRegion={!!currentRegion}
               uses24hFormat={regions[event.region]?.uses24hFormat}
               regionName={regions[event.region]?.displayName}
               startTime={event.startTime}

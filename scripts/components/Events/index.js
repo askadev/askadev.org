@@ -10,7 +10,7 @@ function mapStateToProps(state) {
   return {
     events: state.regions.currentRegion ? eventsForCurrentRegion(state) : state.events.all,
     regions: state.regions.all,
-    hasCurrentRegion: !!state.regions.currentRegion
+    currentRegion: state.regions.currentRegion
   };
 }
 

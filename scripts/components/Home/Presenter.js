@@ -26,7 +26,7 @@ export default class extends React.Component {
           <h2>Upcoming Events in <RegionSelect /></h2>
           <Events />
           <div className="content">
-            <p className="helper">We're expanding to San Francisco, New York, Melbourne, London, and more soon: please check back later for more events or <a href="#can-i-join">start a chapter in your city</a></p>
+            <p className="helper">We're expanding to San Francisco, Atlanta, Brisbane, and others soon: please check back later, <a href="mailto:request@askadev.org?subject=Please%20come%20to...">request your city</a>, or <a href="#can-i-join">found a chapter</a>.</p>
           </div>
         </div>
         <div className="container -fill">
@@ -38,7 +38,7 @@ export default class extends React.Component {
               You know the feeling. Cache-clearing refreshes, stale coffee, tufts of hair. There <em>has</em> to be a better way. Someone <em>must</em> know what I'm doing wrong.
             </p>
             <p>
-              Whether you're a new programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help. Join us for a few hours every other week as we answer your frustrations:
+              Whether you're a new programmer, a veteran exploring a new language, or a tech-adverse soul lost in a sea of WYSIWYG site generators, we're here to help. Join us for a few hours as we answer your frustrations:
             </p>
             <p>
               Should I update my WordPress plugins? Can I use ES6 in a webpack file? How do I configure continuous deployment to S3? Does everybody still love Raymond?
