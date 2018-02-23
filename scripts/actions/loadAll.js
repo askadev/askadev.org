@@ -12,9 +12,8 @@ function generateListeners(dispatch) {
       ref: refRoot(table.EVENTS)
         .orderByChild('startTime')
         .startAt(
-          moment()
+          moment.utc()
             .startOf('day')
-            .utc()
             .valueOf()
         ),
       callback: snapshot => dispatch(receiveEvents(snapshot.val() || {}))

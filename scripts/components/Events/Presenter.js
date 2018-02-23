@@ -8,7 +8,7 @@ const maxEvents = 4
 
 const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion, uses24hFormat }) => {
 
-  const time24h = (start, end) => `${moment.utc(start).format('DD.MM.YY')} ${moment.utc(start).format('HH')}-${moment.utc(end).format('HH')}`
+  const time24h = (start, end) => `${moment.utc(start).format('MM.DD.YY')} ${moment.utc(start).format('HH')}-${moment.utc(end).format('HH')}`
 
   const time12h = (start, end) => `${moment.utc(start).format('MM.DD.YY')} ${moment.utc(start).format('h')}-${moment.utc(end).format('ha')}`
 
