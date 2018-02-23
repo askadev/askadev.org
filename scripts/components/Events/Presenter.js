@@ -1,20 +1,32 @@
 import React from "react"
 
-import moment from "moment"
+import moment from "moment-timezone"
+
+const timezone = moment.tz.guess();
 
 const maxEvents = 4
 
-const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion }) => (
-  <div className="event">
-    <div className="event-location">
-      <a href={mapsUrl}>{displayName}</a>&nbsp;
-      { !hasCurrentRegion &&
-        <small>{regionName}</small>
-      }
+const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion }) => {
+  const isEurope = timezone.includes('Europe')
+
+  const europeTime = (start, end) => `${moment.tz(start, "America/Los_Angeles").format('DD.MM.YY')} ${moment.tz(start, "America/Los_Angeles").format('HH')}-${moment.tz(end, "America/Los_Angeles").format('HH')}`
+
+  const americanTime = (start, end) => `${moment.tz(start, "America/Los_Angeles").format('MM.DD.YY')} ${moment.tz(start, "America/Los_Angeles").format('h')}-${moment.tz(endTime, "America/Los_Angeles").format('ha')}`
+
+  const eventTime = isEurope ? europeTime(startTime, endTime) : americanTime(startTime, endTime)
+  
+  return (
+    <div className="event">
+      <div className="event-location">
+        <a href={mapsUrl}>{displayName}</a>&nbsp;
+        { !hasCurrentRegion &&
+          <small>{regionName}</small>
+        }
+      </div>
+      <div className="event-time">{eventTime}</div>
     </div>
-    <div className="event-time">{`${moment(startTime).format('MM.DD.YY')} ${moment(startTime).format('h')}-${moment(endTime).format('ha')}`}</div>
-  </div>
-);
+  );
+}
 
 export default class extends React.Component {
   state = {
@@ -24,6 +36,7 @@ export default class extends React.Component {
   static defaultProps = {
     events: {}
   }
+
 
   componentWillReceiveProps(nextProps) {
     // TODO - this is probably inefficient and doesn't need
