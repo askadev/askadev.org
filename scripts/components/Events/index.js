@@ -1,18 +1,22 @@
 import { connect } from 'react-redux';
 
-import { eventsForCurrentRegion } from '../../selectors';
+import { makeEventsForOptionalRegion } from '../../selectors';
 
 import Presenter from './Presenter';
 
-function mapStateToProps(state) {
-  // TOOD remove this ternary, especailly remove it from a mapStateToProps
-  // TODO currentRegion may belong in UI
-  return {
-    events: state.regions.currentRegion ? eventsForCurrentRegion(state) : state.events.all,
-    regions: state.regions.all,
-    currentRegion: state.regions.currentRegion
-  };
+const makeMapStateToProps = () => {
+  const eventsForOptionalRegion = makeEventsForOptionalRegion()
+
+  const mapStateToProps = (state, ownProps) => {
+    return {
+      events: eventsForOptionalRegion(state, ownProps),
+      regions: state.regions.all,
+      currentRegion: state.regions.currentRegion
+    }
+  }
+
+  return mapStateToProps
 }
 
-const Main = connect(mapStateToProps)(Presenter);
+const Main = connect(makeMapStateToProps)(Presenter);
 export default Main;

@@ -1,18 +1,22 @@
 import { connect } from 'react-redux';
 
-import { usersForCurrentRegion } from '../../selectors';
+import { makeMentorsForOptionalRegion } from '../../selectors';
 
 import Presenter from './Presenter';
 
-function mapStateToProps(state) {
-  // TOOD remove this ternary, especailly remove it from a mapStateToProps
-  // TODO currentRegion may belong in UI
-  return {
-    users: state.regions.currentRegion ? usersForCurrentRegion(state) : state.users.all,
-    regions: state.regions.all,
-    currentRegion: state.regions.all[ state.regions.currentRegion ]?.displayName
-  };
+const makeMapStateToProps = () => {
+  const mentorsForOptionalRegion = makeMentorsForOptionalRegion()
+
+  const mapStateToProps = (state, ownProps) => {
+    return {
+      users: mentorsForOptionalRegion(state, ownProps),
+      regions: state.regions.all,
+      currentRegion: state.regions.currentRegion
+    }
+  }
+
+  return mapStateToProps
 }
 
-const Main = connect(mapStateToProps)(Presenter);
+const Main = connect(makeMapStateToProps)(Presenter);
 export default Main;

@@ -9,6 +9,8 @@ import AddUsername from '../../components/AddUsername'
 import EditEvents from '../../components/EditEvents'
 import EditProfile from '../../components/EditProfile'
 
+import Austin from '../../components/Regions/Austin'
+
 import { firebaseAuth } from '../../constants/firebase'
 
 export default class extends React.Component {
@@ -54,6 +56,7 @@ export default class extends React.Component {
             path="/editProfile"
             component={EditProfile}
           />
+          <Route exact path="/austin" component={Austin} />
           <Route exact path="/" component={Home} />
         </div>
       </Router>
