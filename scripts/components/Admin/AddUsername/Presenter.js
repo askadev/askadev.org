@@ -2,10 +2,10 @@ import React from 'react'
 
 import moment from 'moment'
 
-import { addUser } from '../../actions/users'
+import { addUser } from 'actions/users'
 
-import FormLayout from '../Layouts/Form'
-import { TextInput, TextareaInput, SelectInput } from '../Inputs'
+import FormLayout from 'components/Admin/Layouts/Form'
+import { TextInput, TextareaInput, SelectInput } from 'components/Inputs'
 
 function regionOptions(regions) {
   return Object.keys(regions || {}).map(key => {

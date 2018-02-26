@@ -1,17 +1,13 @@
 .layout-form {
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 80px auto;
+
+  h2 {
+    margin-bottom: remCalc(40px);
+  }
 
   .inner {
     padding: 0 20px;
     width: 100%;
-  }
-
-  h2 {
-    margin-bottom: remCalc(40px);
   }
 }
 

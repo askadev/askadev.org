@@ -7,18 +7,18 @@ import {
   TimeInput,
   PlacesInput,
   SelectInput
-} from '../Inputs'
-import RegionSelect from '../RegionSelect'
+} from 'components/Inputs'
+import RegionSelect from 'components/RegionSelect'
 
-import FormLayout from '../Layouts/Form'
+import FormLayout from 'components/Admin/Layouts/Form'
 
-import { createEvent } from '../../actions/events'
+import { createEvent } from 'actions/events'
 
 function appendTime(times) {
-  return moment.utc( 
+  return moment.utc(
     this.date)
       .hours(times[0])
-      .minutes(times[1]) 
+      .minutes(times[1])
     .valueOf()
 }
 

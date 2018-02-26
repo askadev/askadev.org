@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { currentUserUid } from '../../constants/firebase'
+import { currentUserUid } from '../../../constants/firebase'
 
 import Presenter from './Presenter'
 

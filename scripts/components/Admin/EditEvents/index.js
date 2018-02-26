@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { eventsForCurrentUser } from '../../selectors';
+import { eventsForCurrentUser } from 'selectors';
 
 import Presenter from './Presenter';
 

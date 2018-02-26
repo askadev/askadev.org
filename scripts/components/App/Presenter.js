@@ -1,17 +1,20 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import ProtectedRoute from '../../components/ProtectedRoute'
-import Home from '../../components/Home'
-import AddEvent from '../../components/AddEvent'
-import AddRegion from '../../components/AddRegion'
-import AddUsername from '../../components/AddUsername'
-import EditEvents from '../../components/EditEvents'
-import EditProfile from '../../components/EditProfile'
+import ProtectedRoute from 'components/ProtectedRoute'
+import Home from 'components/Home'
+import AddEvent from 'components/Admin/AddEvent'
+import AddRegion from 'components/Admin/AddRegion'
+import AddUsername from 'components/Admin/AddUsername'
+import EditEvents from 'components/Admin/EditEvents'
+import EditProfile from 'components/Admin/EditProfile'
 
-import Austin from '../../components/Regions/Austin'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
-import { firebaseAuth } from '../../constants/firebase'
+import Austin from 'components/Regions/Austin'
+
+import { firebaseAuth } from 'constants/firebase'
 
 export default class extends React.Component {
   componentDidMount() {
@@ -30,35 +33,38 @@ export default class extends React.Component {
 
     return (
       <Router>
-        <div>
+        <React.Fragment>
+          <Header />
           <ProtectedRoute
             authed={authed}
-            path="/addEvent"
+            path="/admin/addEvent"
             component={AddEvent}
           />
           <ProtectedRoute
             authed={authed}
-            path="/addRegion"
+            path="/admin/addRegion"
             component={AddRegion}
           />
           <ProtectedRoute
             authed={authed}
-            path="/addUsername"
+            path="/admin/addUsername"
             component={AddUsername}
           />
           <ProtectedRoute
             authed={authed}
-            path="/editEvents"
+            path="/admin/editEvents"
             component={EditEvents}
           />
           <ProtectedRoute
             authed={authed}
-            path="/editProfile"
+            path="/admin/editProfile"
             component={EditProfile}
           />
+
           <Route exact path="/austin" component={Austin} />
           <Route exact path="/" component={Home} />
-        </div>
+          <Footer />
+        </React.Fragment>
       </Router>
     )
   }

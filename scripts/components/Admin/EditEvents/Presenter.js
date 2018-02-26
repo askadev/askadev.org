@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { removeEvent } from '../../actions/events'
+import { removeEvent } from 'actions/events'
 
 import moment from 'moment'
 
-import FormLayout from '../Layouts/Form'
+import FormLayout from 'components/Admin/Layouts/Form'
 
 function shouldRemoveEvent(uid) {
   if (confirm('Are you sure you want to remove this event?')) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { logout } from '../../utils/auth'
+import { logout } from 'utils/auth'
 
 const Avatar = ({ src }) => (
   <div className="avatar" style={{ backgroundImage: `url(${src})` }} />
@@ -9,26 +9,26 @@ const Avatar = ({ src }) => (
 
 const adminLinks = [
   {
-    path: '/addEvent',
+    path: '/admin/addEvent',
     text: 'Add Event'
   },
   {
-    path: '/editProfile',
+    path: '/admin/editProfile',
     text: 'Edit Profile'
   },
   {
-    path: '/editEvents',
+    path: '/admin/editEvents',
     text: 'Edit My Events'
   }
 ]
 
 const superAdminLinks = [
   {
-    path: '/addRegion',
+    path: '/admin/addRegion',
     text: 'Add Region'
   },
   {
-    path: '/addUsername',
+    path: '/admin/addUsername',
     text: 'Add Username'
   }
 ]

@@ -9,9 +9,10 @@ const makeMapStateToProps = () => {
 
   const mapStateToProps = (state, ownProps) => {
     return {
-      users: mentorsForOptionalRegion(state, ownProps),
+      mentors: mentorsForOptionalRegion(state, ownProps),
       regions: state.regions.all,
-      currentRegion: state.regions.currentRegion
+      currentRegion: state.regions.currentRegion,
+      shouldShowBio: !!ownProps.regionName || !!state.regions.currentRegion
     }
   }
 

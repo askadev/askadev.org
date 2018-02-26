@@ -1,10 +1,10 @@
 import React from 'react'
 import moment from 'moment'
 
-import { editProfile } from '../../actions/users'
+import { editProfile } from 'actions/users'
 
-import FormLayout from '../Layouts/Form'
-import { SelectInput, TextInput, TextareaInput, CheckboxInput } from '../Inputs'
+import FormLayout from 'components/Admin/Layouts/Form'
+import { SelectInput, TextInput, TextareaInput, CheckboxInput } from 'components/Inputs'
 
 function yearOptions() {
   const maxYears = 30

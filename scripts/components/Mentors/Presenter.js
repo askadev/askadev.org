@@ -7,13 +7,13 @@ const DevelopingYear = ({ developingSince }) => {
   return <small>{moment().diff(moment().year(developingSince), 'years')} years</small>
 }
 
-const User = ({
+const Mentor = ({
   githubUsername,
   photoURL,
   url,
   displayName,
   developingSince,
-  currentRegion,
+  shouldShowBio,
   regionName,
   skills
 }) => (
@@ -24,39 +24,39 @@ const User = ({
       </a>
       <a href={url}>
         <h4>{displayName}</h4>
-        {currentRegion ? (
+        {shouldShowBio ? (
           <DevelopingYear developingSince={developingSince} />
         ) : (
           <small>{regionName}</small>
         )}
       </a>
     </header>
-    { currentRegion &&
+    { shouldShowBio &&
       <div className="dev-skills">{skills}</div>
     }
   </div>
 );
 
-const Users = ({ users, currentRegion, regions }) => (
+const Mentors = ({ mentors = {}, shouldShowBio, regions }) => (
   <div className="devs">
-    {Object.keys(users || {}).map(key => {
-      const user = users[key];
-      if (user.shouldNotDisplay) return null;
+    {Object.keys(mentors).map(key => {
+      const mentor = mentors[key];
+      if (mentor.shouldNotDisplay) return null;
 
       return (
-        <User
+        <Mentor
           key={key}
-          githubUsername={user.githubUsername}
-          photoURL={user.photoURL}
-          url={user.url}
-          displayName={user.displayName}
-          developingSince={user.developingSince}
-          regionName={regions[user.region]?.displayName}
-          currentRegion={currentRegion}
-          skills={user.skills} />
+          githubUsername={mentor.githubUsername}
+          photoURL={mentor.photoURL}
+          url={mentor.url}
+          displayName={mentor.displayName}
+          developingSince={mentor.developingSince}
+          regionName={regions[mentor.region]?.displayName}
+          shouldShowBio={shouldShowBio}
+          skills={mentor.skills} />
       )
     })}
   </div>
 );
 
-export default Users;
+export default Mentors;

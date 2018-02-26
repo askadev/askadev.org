@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { createRegion } from '../../actions/regions'
+import { createRegion } from 'actions/regions'
 
-import FormLayout from '../Layouts/Form'
-import { TextInput } from '../Inputs'
+import FormLayout from 'components/Admin/Layouts/Form'
+import { TextInput } from 'components/Inputs'
 
 export default class extends React.Component {
   submit = e => {
@@ -14,10 +14,17 @@ export default class extends React.Component {
       .then(res => this.name.value = '')
       .catch(res => alert('It failed'))
   }
+
+  static defaultProps = {
+    regions: {}
+  }
+
   render() {
+    const allRegions = Object.values(this.props.regions).map(item => item.displayName).join(', ')
+
     return (
       <FormLayout title="New Region">
-        Currently: {Object.values(this.props.regions || {}).map(item => item.displayName).join(', ')}
+        Currently: {allRegions}
         <br />
         <br />
         <form onSubmit={this.submit}>
