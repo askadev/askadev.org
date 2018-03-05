@@ -3,13 +3,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && mkdir dist && NODE_ENV=production webpack -p --config ./webpack.prod.config.js && cp -R static dist",
+    "build": "rm -rf dist && mkdir dist && NODE_ENV=production webpack -p --config ./webpack.prod.config.js && cp -R static dist && yarn bolt",
     "deploy": "yarn build && firebase deploy && rm -rf dist",
     "start": "webpack-dev-server --progress --colors --hot --content-base . --config ./webpack.config.js",
-    "bolt": "npm run bolt:compile && npm run bolt:build",
-    "bolt:compile": "npm run bolt:remove-compiled && (cat bolt/database.functions.bolt bolt/database.types.bolt bolt/database.rules.bolt) >> bolt/database.compiled.bolt",
+    "bolt": "yarn bolt:compile && yarn bolt:build",
+    "bolt:compile": "yarn bolt:remove-compiled && (cat bolt/database.functions.bolt bolt/database.types.bolt bolt/database.rules.bolt) >> bolt/database.compiled.bolt",
     "bolt:remove-compiled": "rm -f bolt/database.compiled.bolt",
-    "bolt:build": "firebase-bolt < bolt/database.compiled.bolt > database.rules.json && npm run bolt:remove-compiled"
+    "bolt:build": "firebase-bolt < bolt/database.compiled.bolt > database.rules.json && yarn bolt:remove-compiled"
   },
   "author": "Tim Shedor <askadevorg@gmail.com>",
   "dependencies": {
