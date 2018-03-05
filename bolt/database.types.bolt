@@ -1,3 +1,43 @@
+type Coordinates {
+  lat: Number,
+  lng: Number
+}
+
+type Event {
+  startTime: Number,
+  endTime: Number,
+  region: String,
+  displayName: String,
+  location: String | Null,
+  mapsUrl: String,
+  createdBy: String,
+  createdAt: Number
+}
+
+type Location {
+  uid: String,
+  address: String,
+  displayName: String,
+  location: Coordinates,
+  mapsUrl: String,
+  phoneNumber: String | Null,
+  website: String | Null
+}
+
 type TimeString extends String {
   validate() { this.length > 19 && this.length < 25 && this.test(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.?\d{3}?Z$/) }
+}
+
+type UserInfo {
+  displayName: String | Null,
+  firebaseId: String | Null,
+  uid: Number | String | Null,
+  githubId: Number | String | Null,
+  githubUsername: String | Null,
+  photoURL: String | Null,
+  region: String | Null,
+  developingSince: String | Number | Null,
+  skills: String | Null,
+  url: String | Null,
+  shouldNotDisplay: Boolean | Null
 }
