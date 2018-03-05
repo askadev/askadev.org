@@ -1,0 +1,73 @@
+path /events {
+  read() { everyone() }
+  index() { ['startTime', 'endTime'] }
+
+  path /{eventId} is Event {
+    write() {
+      isAuthed() &&
+      (
+        isSuperAdmin() ||
+        this !== null && prior(this) === null ||
+        auth.uid === prior(root.events[eventId].region)
+      )
+    }
+  }
+}
+
+path /githubUsers {
+  read() { everyone() }
+
+  path /{userId} is UserInfo {
+    write() {
+      (
+        root.githubUsers[userId] !== null &&
+        prior(root.githubUsers[userId].firebaseId) === null
+      ) ||
+      (
+        hasApprovedGithub() &&
+        isUser(root.githubUsers[userId].firebaseId)
+      ) ||
+      isSuperAdmin()
+    }
+  }
+}
+
+path /locations {
+  read() { everyone() }
+
+  path /{locationId} is Location {
+    write() {
+      isAuthed() &&
+      (
+        this !== null && prior(this) === null ||
+        this !== null && prior(this) !== null
+      )
+    }
+  }
+}
+
+type Region {
+  displayName: String | Null
+}
+
+path /regions {
+  read() { everyone() }
+  write() { isSuperAdmin() }
+
+  path /{regionId} is Region {}
+}
+
+path /superAdmins {
+  read() { isAuthed() }
+}
+
+path /users {
+  read() { everyone() }
+
+  path /{userId} is UserInfo {
+    write() {
+      (hasApprovedGithub() && isUser(userId)) ||
+      isSuperAdmin()
+    }
+  }
+}

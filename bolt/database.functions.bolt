@@ -1,0 +1,20 @@
+hasApprovedGithub() {
+  root.githubUsers[ root.users[auth.uid].githubId ] !== null
+}
+
+everyone() {
+  auth.uid == null ||
+  auth != null
+}
+
+isAuthed() {
+  auth !== null
+}
+
+isSuperAdmin() {
+  root.superAdmins[auth.uid] !== null
+}
+
+isUser(uid) {
+  auth.uid === uid
+}
