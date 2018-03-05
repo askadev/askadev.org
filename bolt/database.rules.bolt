@@ -1,0 +1,113 @@
+type Event {
+  startTime: Number,
+  endTime: Number,
+  region: String,
+  displayName: String,
+  location: String | Null,
+  mapsUrl: String,
+  createdBy: String,
+  createdAt: Number
+}
+
+path /events {
+  read() { everyone() }
+  index() { ['startTime', 'endTime'] }
+
+  path /{eventId} is Event {
+    write() {
+      isAuthed() &&
+      (
+        isSuperAdmin() ||
+        this !== null && prior(this) === null ||
+        auth.uid === prior(root.events[eventId].region)
+      )
+    }
+  }
+}
+
+path /githubUsers {
+  read() { everyone() }
+
+  path /{userId} is UserInfo {
+    write() {
+      (
+        root.githubUsers[userId] !== null &&
+        prior(root.githubUsers[userId].firebaseId) === null
+      ) ||
+      (
+        hasApprovedGithub() &&
+        isUser(root.githubUsers[userId].firebaseId)
+      ) ||
+      isSuperAdmin()
+    }
+  }
+}
+
+type Coordinates {
+  lat: Number,
+  lng: Number
+}
+
+type Location {
+  uid: String,
+  address: String,
+  displayName: String,
+  location: Coordinates,
+  mapsUrl: String,
+  phoneNumber: String | Null,
+  website: String | Null
+}
+
+path /locations {
+  read() { everyone() }
+
+  path /{locationId} is Location {
+    write() {
+      isAuthed() &&
+      (
+        this !== null && prior(this) === null ||
+        this !== null && prior(this) !== null
+      )
+    }
+  }
+}
+
+type Region {
+  displayName: String | Null
+}
+
+path /regions {
+  read() { everyone() }
+  write() { isSuperAdmin() }
+
+  path /{regionId} is Region {}
+}
+
+path /superAdmins {
+  read() { isAuthed() }
+}
+
+type UserInfo {
+  displayName: String | Null,
+  firebaseId: String | Null,
+  uid: Number | String | Null,
+  githubId: Number | String | Null,
+  githubUsername: String | Null,
+  photoURL: String | Null,
+  region: String | Null,
+  developingSince: String | Number | Null,
+  skills: String | Null,
+  url: String | Null,
+  shouldNotDisplay: Boolean | Null
+}
+
+path /users {
+  read() { everyone() }
+
+  path /{userId} is UserInfo {
+    write() {
+      (hasApprovedGithub() && isUser(userId)) ||
+      isSuperAdmin()
+    }
+  }
+}
