@@ -8,7 +8,7 @@ path /events {
       (
         isSuperAdmin() ||
         this !== null && prior(this) === null ||
-        auth.uid === prior(root.events[eventId].region)
+        auth.uid === prior(root.events[eventId].uid)
       )
     }
   }
