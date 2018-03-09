@@ -10,7 +10,8 @@ function mapStateToProps(state) {
     userCurrentRegion: state.users.currentUser.region,
     regionDisplayName: state.regions.all[state.users.currentUser.region]?.displayName,
     regions: state.regions.all,
-    isSuperAdmin: state.users.isSuperAdmin
+    isSuperAdmin: state.users.isSuperAdmin,
+    firebaseId: state.users.currentUser.firebaseId
   }
 }
 
