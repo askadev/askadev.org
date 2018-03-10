@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && NODE_ENV=production webpack -p --config ./webpack.prod.config.js && cp -R static dist && yarn bolt",
+    "test": "echo \"no tests defined\"",
     "deploy": "yarn build && firebase deploy && rm -rf dist",
     "start": "webpack-dev-server --progress --colors --hot --content-base . --config ./webpack.config.js",
     "bolt": "yarn bolt:compile && yarn bolt:build",
