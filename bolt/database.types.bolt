@@ -11,7 +11,8 @@ type Event {
   location: String | Null,
   mapsUrl: String,
   createdBy: String,
-  createdAt: Number
+  createdAt: Number,
+  firebaseId: String
 }
 
 type Location {

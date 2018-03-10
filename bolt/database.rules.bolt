@@ -6,9 +6,12 @@ path /events {
     write() {
       isAuthed() &&
       (
-        isSuperAdmin() ||
-        this !== null && prior(this) === null ||
-        auth.uid === prior(root.events[eventId].region)
+        (
+          isSuperAdmin() ||
+          this !== null && prior(this) === null ||
+          auth.uid === this.firebaseId
+        ) ||
+        auth.uid === prior(root.events[eventId].firebaseId)
       )
     }
   }

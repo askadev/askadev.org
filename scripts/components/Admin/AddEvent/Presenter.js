@@ -63,7 +63,8 @@ export default class extends React.Component {
       region: this.region?.value || this.props.userCurrentRegion,
       displayName: this.state.displayName,
       mapsUrl: this.state.mapsUrl,
-      locationData: this.locationData
+      locationData: this.locationData,
+      firebaseId: this.props.firebaseId
     })
       .then(res => alert('Event successfully created'))
       .catch(res => alert('Error creating event'))
