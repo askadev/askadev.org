@@ -1,18 +1,13 @@
 language: node_js
-
 node_js: 8
-
 cache: yarn
-
 branches:
   only:
   - master
-
 before_deploy:
-  - yarn build
-
+- yarn build
 deploy:
   provider: firebase
   token:
-    secure: b2LrIcv5QJR/R2AxBs24XXqghsCTSLHdXvG95Qw9d/5+ldZ3PtZtWiavgpn/btdSKglftS61NrradOr795CqcTjfausP5KHirRrRK8la7R9HLH1xqutvXRpp79UIW4zirxbO1jXlNX2Rd5ApOu+YRHd3tU4DNeaRN3uWPGlwovmRQBJp3m5pZVsl87KIhl9KOKGDLTva+f+By6PdOe1YNQa34+ychWcOwsBv2lR+2oq2M414fG6IbmbZQUthABRhanH3U/NPdf7N5H5FkOHspC+UhYGI5MrLgpntJW33Putf6DyqX+l65BcvSeEpSKaTlZbduRKaMfRncu0lnXOYXgxr/+PIMA13jiIMtjGQGclhyWiwCLy/0yUkywClUGbG8meZdO/tQgezXJ6Dry3j7xGnkPvv5Z+zQA+qH43gMw9Q5/uQMybPUtqpYsg0NG1Q65hUmEfCRLX+Xz45xGsbRfEUJdy0eAELO/OT6rtafl52yaAk3UKdNdI50o+LNWNHav9PWKFeBSkBjESGP5cTE5PDzg/VEgkN0N99asyvFnKw+qCg7JYix7UNXVkVV60/qIIyDmQsZvzw77Z2EZSZJsrrzR5JqneuQsVza5aROEg+ogsnKFGC8cUoIFKNo0dMjnK8QTC0eHBvyqTJX9akxBlbtTiKckVnaGeLLLbs+sU=
-  project: "ask-a-dev-marketing"
+    secure: "vGvraZvI2E12oJXoJB8cLgDA++F/5KXKIHbR0xTD42b25gwZX85Yz8bMwDXBAafVCXZTc1jLXbYa5oOb9IPhXbBpE+yS3guRKhv94agf3OvuNwwhexpZN5lxDIxJ2ZwvLsGGBw7GROxOjAsiOCDLQXMU/N5VITuVV/RYlHmGAlJDkDoqXdSmDUEn+3/xeIwqCksMQQOdmumgpc1QHT38dwqHdGevjk+MWuGrnUw/BolMsPI7kxRwiT85Xairw72SoX4T8ZUGDlZ7lgOmc/2BaD8oFipgQmmRMycSlynjWAk8hx5Ao7ztyRBFwJXH8NXeKTKPNG/02IoN1/GXkL6JStuWr+gPRjVGRxiqAMZj9sLpwvE4Oxh1GqdFeYRVPm9jmFW1Nv4oYvn+l7rA5CB+Zi+5HXlWGwfY70MpKqnQLyzIYDsoZWAy74v+pRpC40RlrBwZbd3MWQEsuqN9SE5JTuwg8k37D9QxXwmnL1oMYzLPmOYbLEIC1Xu6wmqcNaAxVZsYyk68jsO7gxl46XQr8zUTJvAXliJrXjurdWeEtn2CX0ur0IrXTaKRcebgLfPtXxeM/un6xrRntRolWxHf9TC7btEXug2/TY7dlXcQB+BchNI4PlBe0eNP1rlwbmZGwvMcormlVSHpiC7K06+isNgnq9bMx2kbL+4gX0KKxzE="
+  project: ask-a-dev-marketing
