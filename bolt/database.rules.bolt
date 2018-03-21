@@ -8,7 +8,10 @@ path /events {
       (
         isSuperAdmin() ||
         this !== null && prior(this) === null ||
-        auth.uid === prior(root.events[eventId].region)
+        (
+          hasApprovedGithub() &&
+          root.githubUsers[ root.users[auth.uid].githubId ].region === prior(root.events[eventId].region)
+        )
       )
     }
   }
