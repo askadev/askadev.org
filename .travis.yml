@@ -14,5 +14,5 @@ before_deploy:
 deploy:
   provider: firebase
   token:
-    secure: $FIREBASE_TOKEN
+    secure: b2LrIcv5QJR/R2AxBs24XXqghsCTSLHdXvG95Qw9d/5+ldZ3PtZtWiavgpn/btdSKglftS61NrradOr795CqcTjfausP5KHirRrRK8la7R9HLH1xqutvXRpp79UIW4zirxbO1jXlNX2Rd5ApOu+YRHd3tU4DNeaRN3uWPGlwovmRQBJp3m5pZVsl87KIhl9KOKGDLTva+f+By6PdOe1YNQa34+ychWcOwsBv2lR+2oq2M414fG6IbmbZQUthABRhanH3U/NPdf7N5H5FkOHspC+UhYGI5MrLgpntJW33Putf6DyqX+l65BcvSeEpSKaTlZbduRKaMfRncu0lnXOYXgxr/+PIMA13jiIMtjGQGclhyWiwCLy/0yUkywClUGbG8meZdO/tQgezXJ6Dry3j7xGnkPvv5Z+zQA+qH43gMw9Q5/uQMybPUtqpYsg0NG1Q65hUmEfCRLX+Xz45xGsbRfEUJdy0eAELO/OT6rtafl52yaAk3UKdNdI50o+LNWNHav9PWKFeBSkBjESGP5cTE5PDzg/VEgkN0N99asyvFnKw+qCg7JYix7UNXVkVV60/qIIyDmQsZvzw77Z2EZSZJsrrzR5JqneuQsVza5aROEg+ogsnKFGC8cUoIFKNo0dMjnK8QTC0eHBvyqTJX9akxBlbtTiKckVnaGeLLLbs+sU=
   project: "ask-a-dev-marketing"
