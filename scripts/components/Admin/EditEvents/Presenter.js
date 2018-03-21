@@ -14,7 +14,7 @@ function shouldRemoveEvent(uid) {
 
 const Event = ({ event, uid }) => (
   <div>
-    {event.displayName} on {moment(event.startTime).format('MM.DD.YY [at] hh:mm')} <small className="button" onClick={() => shouldRemoveEvent(uid)}>Delete</small>
+    {event.displayName} on {moment.utc(event.startTime).format('DD MMM YY [at] HH:mm')} <small className="button" onClick={() => shouldRemoveEvent(uid)}>Delete</small>
   </div>
 )
 
