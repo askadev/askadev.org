@@ -2,16 +2,21 @@ import React from "react"
 
 import moment from "moment"
 
+import "moment-timezone"
+
 const maxEvents = 4
 
-const time24h = (start, end) => `${moment.utc(start).format('HH')}-${moment.utc(end).format('HH[h]')}`
+const uses24hFormat = /^(?!America)/.test(moment.tz.guess())
 
-const time12h = (start, end) => `${moment.utc(start).format('h')}-${moment.utc(end).format('ha')}`.slice(0, -1)
+const time24h = (start, end) => `${start.format('HH')}-${end.format('HH[h]')}`
 
-const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion, uses24hFormat }) => {
-  const startTimeFormatted = moment.utc(startTime).format('MM.DD.YY')
+const time12h = (start, end) => `${start.format('h')}-${end.format('ha')}`.slice(0, -1)
 
-  const endTimeFormatted = uses24hFormat ? time24h(startTime, endTime) : time12h(startTime, endTime)
+const Event = ({ displayName, mapsUrl, regionName, startTime, endTime, hasCurrentRegion }) => {
+  const utcStart = moment.utc(startTime)
+  const utcEnd = moment.utc(endTime)
+  const startTimeFormatted = uses24hFormat ? utcStart.format('DD.MM.YY') : utcStart.format('MM.DD.YY')
+  const endTimeFormatted = uses24hFormat ? time24h(utcStart, utcEnd) : time12h(utcStart, utcEnd)
 
   return (
     <div className="event">
@@ -71,7 +76,6 @@ export default class extends React.Component {
               displayName={event.displayName}
               mapsUrl={event.mapsUrl}
               hasCurrentRegion={!!currentRegion}
-              uses24hFormat={regions[event.region]?.uses24hFormat}
               regionName={regions[event.region]?.displayName}
               startTime={event.startTime}
               endTime={event.endTime} />
