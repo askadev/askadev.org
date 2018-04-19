@@ -1,13 +1,16 @@
 language: node_js
+
 node_js: 8
+
 cache: yarn
+
 branches:
   only:
   - master
-before_deploy:
+
+before_script:
+- yarn global add firebase-tools
 - yarn build
-deploy:
-  provider: firebase
-  token:
-    secure: "vGvraZvI2E12oJXoJB8cLgDA++F/5KXKIHbR0xTD42b25gwZX85Yz8bMwDXBAafVCXZTc1jLXbYa5oOb9IPhXbBpE+yS3guRKhv94agf3OvuNwwhexpZN5lxDIxJ2ZwvLsGGBw7GROxOjAsiOCDLQXMU/N5VITuVV/RYlHmGAlJDkDoqXdSmDUEn+3/xeIwqCksMQQOdmumgpc1QHT38dwqHdGevjk+MWuGrnUw/BolMsPI7kxRwiT85Xairw72SoX4T8ZUGDlZ7lgOmc/2BaD8oFipgQmmRMycSlynjWAk8hx5Ao7ztyRBFwJXH8NXeKTKPNG/02IoN1/GXkL6JStuWr+gPRjVGRxiqAMZj9sLpwvE4Oxh1GqdFeYRVPm9jmFW1Nv4oYvn+l7rA5CB+Zi+5HXlWGwfY70MpKqnQLyzIYDsoZWAy74v+pRpC40RlrBwZbd3MWQEsuqN9SE5JTuwg8k37D9QxXwmnL1oMYzLPmOYbLEIC1Xu6wmqcNaAxVZsYyk68jsO7gxl46XQr8zUTJvAXliJrXjurdWeEtn2CX0ur0IrXTaKRcebgLfPtXxeM/un6xrRntRolWxHf9TC7btEXug2/TY7dlXcQB+BchNI4PlBe0eNP1rlwbmZGwvMcormlVSHpiC7K06+isNgnq9bMx2kbL+4gX0KKxzE="
-  project: ask-a-dev-marketing
+
+script:
+- firebase deploy --token $FIREBASE_TOKEN
