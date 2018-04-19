@@ -43,7 +43,6 @@ export default class extends React.Component {
     events: {}
   }
 
-
   componentWillReceiveProps(nextProps) {
     // TODO - this is probably inefficient and doesn't need
     //   to fire when props.regions changes

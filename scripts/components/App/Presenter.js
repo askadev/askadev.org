@@ -35,6 +35,7 @@ export default class extends React.Component {
       <Router>
         <React.Fragment>
           <Header />
+
           <ProtectedRoute
             authed={authed}
             path="/admin/addEvent"
@@ -63,6 +64,7 @@ export default class extends React.Component {
 
           <Route exact path="/austin" component={Austin} />
           <Route exact path="/" component={Home} />
+
           <Footer />
         </React.Fragment>
       </Router>
