@@ -22,7 +22,7 @@ const Home = () => (
   <main>
     <AvatarMenu />
     <div className="container" id="upcoming-events">
-      <h2>Upcoming Events in <RegionSelect /></h2>
+      <h2>Upcoming Events in <RegionSelect autoFocus={true} /></h2>
       <Events />
       <div className="content">
         <p className="helper">We're expanding! If you don't see your locale here, check back later, <a href="mailto:request@askadev.org?subject=Please%20come%20to...">request your city</a>, or <a href="#can-i-join">found a chapter</a>.</p>

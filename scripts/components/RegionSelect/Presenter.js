@@ -22,6 +22,12 @@ export default class extends React.Component {
     inputValue: ''
   }
 
+  componentDidMount() {
+    if (this.props.autoFocus) {
+      this.searchInput.focus();
+    }
+  }
+
   render() {
     const { regions, currentRegion, onChange } = this.props;
 
@@ -39,7 +45,7 @@ export default class extends React.Component {
           highlightedIndex
         }) => (
           <div className="regions-search">
-            <input {...getInputProps({ placeholder: 'the world' })} spellCheck="false" />
+            <input {...getInputProps({ placeholder: 'the world' })} ref={val => this.searchInput = val} spellCheck="false" />
             {isOpen &&
               <div className="regions-search-wrapper">
                 {Object.keys(regions)
