@@ -1,0 +1,46 @@
+.guide-navigation {
+  flex: 0 0 400px;
+  text-transform: lowercase;
+  padding: 20px;
+
+  nav {
+    @include bp(medium) {
+      position: sticky;
+      top: 20px;
+    }
+  }
+
+  a {
+    display: block;
+  }
+}
+
+.guide {
+  @include bp(medium) {
+    display: flex;
+  }
+
+  h2 {
+    margin: 1.4em 0 0;
+    font-size: 2em;
+  }
+
+  li {
+    margin-bottom: 30px;
+  }
+
+  .container {
+    flex: 1 0 0px;
+    font-size: 20px;
+  }
+}
+
+.notice {
+  background: rgba($c-primary, 0.08);
+  padding: 15px;
+  margin: 10px 0 0;
+
+  &.-warning {
+    background: rgba($c-red, 0.08);
+  }
+}

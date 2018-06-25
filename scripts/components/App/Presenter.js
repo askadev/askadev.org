@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import ProtectedRoute from 'components/ProtectedRoute'
 import Home from 'components/Home'
+import Guide from 'components/Guide'
 import AddEvent from 'components/Admin/AddEvent'
 import AddRegion from 'components/Admin/AddRegion'
 import AddUsername from 'components/Admin/AddUsername'
@@ -63,6 +64,7 @@ export default class extends React.Component {
           />
 
           <Route exact path="/austin" component={Austin} />
+          <Route exact path="/guide" component={Guide} />
           <Route exact path="/" component={Home} />
 
           <Footer />
