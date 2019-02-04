@@ -22,9 +22,9 @@ const Footer = () => (
   <footer className="container copyright">
     <p>&copy; Copyright Ask a Dev {currentYear()} | Logo by <a href="http://northbryan.com/"> North Bryan</a> | <a href="#" onClick={login}>Login</a></p>
     <p>
-      <a href="https://www.meetup.com/Ask-A-Dev/"><Meetup /></a>
-      <a href="https://github.com/askadev"><Github /></a>
-      <a href="https://twitter.com/askadevorg"><Twitter /></a>
+      <a href="https://www.meetup.com/Ask-A-Dev/" title="Meetup"><Meetup /></a>
+      <a href="https://github.com/askadev" title="Github"><Github /></a>
+      <a href="https://twitter.com/askadevorg" title="Twitter"><Twitter /></a>
     </p>
 
   </footer>
