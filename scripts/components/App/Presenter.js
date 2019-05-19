@@ -13,7 +13,8 @@ import EditProfile from 'components/Admin/EditProfile'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
-import Austin from 'components/Regions/Austin'
+import Austin from 'components/Regions/Austin';
+import HackNAppShowdown from 'components/Regions/Austin/HackNAppShowdown';
 
 import { firebaseAuth } from 'constants/firebase'
 
@@ -64,7 +65,9 @@ export default class extends React.Component {
           />
 
           <Route exact path="/austin" component={Austin} />
+          <Route exact path="/austin/hacknappshowdown" component={HackNAppShowdown} />
           <Route exact path="/guide" component={Guide} />
+
           <Route exact path="/" component={Home} />
 
           <Footer />
