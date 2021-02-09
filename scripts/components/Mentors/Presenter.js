@@ -20,7 +20,7 @@ const Mentor = ({
   <div className="dev-box">
     <header>
       <a href={`https://github.com/${githubUsername}`}>
-        <img src={photoURL} alt={name} />
+        <img src={photoURL} alt={displayName} />
       </a>
       <a href={url}>
         <h4>{displayName}</h4>
